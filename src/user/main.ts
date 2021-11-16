@@ -1,7 +1,11 @@
-import { createSSRApp } from "vue";
+import { createApp } from "vue";
+import router from "./plugins/router/router";
+import i18n from "./plugins/locale/locale";
+import App from "./App.vue";
 
-import App from "@user/app/App.vue";
+const app = createApp(App);
 
-const app = createSSRApp(App);
+app.use(router);
+app.use(i18n);
 
 app.mount("#app");
