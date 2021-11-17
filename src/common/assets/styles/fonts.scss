@@ -1,0 +1,8 @@
+// font sizes from 12 to 40
+@for $value from 12 to 42 {
+  @if $value%2==0 {
+    .font-size-#{$value} {
+      font-size: math.div($value, 16) + em;
+    }
+  }
+}

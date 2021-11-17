@@ -15,7 +15,8 @@
     "paths": {
       "@/*": ["src/*"],
       "@admin/*": ["src/admin/*"],
-      "@user/*": ["src/user/*"]
+      "@user/*": ["src/user/*"],
+      "@common/*": ["src/common/*"]
     },
     "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
   },

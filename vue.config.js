@@ -18,6 +18,18 @@ module.exports = {
         "@": path.resolve(__dirname, "src/"),
         "@user": path.resolve(__dirname, "src/user/"),
         "@admin": path.resolve(__dirname, "src/admin/"),
+        "@common": path.resolve(__dirname, "src/common/"),
+      },
+    },
+  },
+  css: {
+    loaderOptions: {
+      sass: {
+        additionalData: `
+          @import "@common/assets/styles/common.scss";
+          @import "@common/assets/styles/colors.scss";
+          @import "@common/assets/styles/fonts.scss";
+        `,
       },
     },
   },
