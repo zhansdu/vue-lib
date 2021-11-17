@@ -26,7 +26,6 @@ module.exports = {
     loaderOptions: {
       sass: {
         additionalData: `
-          @import "@common/assets/styles/common.scss";
           @import "@common/assets/styles/colors.scss";
           @import "@common/assets/styles/fonts.scss";
         `,
