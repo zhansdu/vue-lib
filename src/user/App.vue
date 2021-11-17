@@ -1,17 +1,14 @@
 <template>
-  <div>
-    <router-view v-slot="{ Component }">
-      <transition name="scale">
-        <component :is="Component" />
-      </transition>
-    </router-view>
-  </div>
+  <app-vue></app-vue>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "@vue/runtime-core";
+import AppVue from "@user/views/main_layout/App.vue";
 import "vue-i18n";
-export default defineComponent({});
+export default defineComponent({
+  components: { AppVue },
+});
 </script>
 <style lang="scss" scoped>
 .scale-enter-active,

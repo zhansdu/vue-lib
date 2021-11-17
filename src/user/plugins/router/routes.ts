@@ -1,11 +1,11 @@
-// import Home from "@user/pages/home/Home.vue";
+import Home from "@user/views/home/Home.vue";
 // import Search from "@user/pages/search/Search.vue";
 
 const routes = [
   {
     path: "/",
     name: "home",
-    component: {},
+    component: Home,
   },
   {
     path: "/search",

@@ -1,0 +1,14 @@
+Recommended OS : Ubuntu ^18.04
+Recommended IDE : Visual Studio Code
+Recommended extensions for VSCode : found in [package]/.vscode/extensions.json file
+
+Recommended requirements:
+    nodejs ^12.22.5
+    yarn ^1.22.17
+
+To install the project follow next steps:
+    cd [package]
+    yarn
+
+To test local server running :
+    yarn serve
