@@ -1,30 +1,19 @@
 @use "sass:math";
-$darkgrey: #b5bac7 !important;
-$grey: #9c9fa7 !important;
-$lightgrey: #f4f4f4 !important;
-$white: #fff !important;
-$black: #333 !important;
-$red: #9e2629 !important;
-$lightblue: rgba(163, 200, 255, 0.25) !important;
-$blue: #274fb6 !important;
-$darkblue: #00246a !important;
-$green: #00bb78 !important;
-$orange: #ff9d29 !important;
-$transparent: transparent !important;
+@use "./variables.scss" as v;
 // setting colors
 $colors: (
-  "darkgrey": $darkgrey,
-  "grey": $grey,
-  "lightgrey": $lightgrey,
-  "white": $white,
-  "black": $black,
-  "red": $red,
-  "lightblue": $lightblue,
-  "blue": $blue,
-  "darkblue": $darkblue,
-  "green": $green,
-  "orange": $orange,
-  "transparent": $transparent,
+  "darkgrey": v.$darkgrey,
+  "grey": v.$grey,
+  "lightgrey": v.$lightgrey,
+  "white": v.$white,
+  "black": v.$black,
+  "red": v.$red,
+  "lightblue": v.$lightblue,
+  "blue": v.$blue,
+  "darkblue": v.$darkblue,
+  "green": v.$green,
+  "orange": v.$orange,
+  "transparent": v.$transparent,
 );
 @each $name, $color in $colors {
   .bg-#{$name} {

@@ -1,5 +1,6 @@
 <template>
-  <div class="text-me">Hello kitty</div>
+  <div class="text-orange">Hello kitty</div>
+  <div class="text-bro">Hello kitty</div>
 </template>
 <script lang="ts">
 import { defineComponent } from "@vue/runtime-core";
@@ -10,8 +11,4 @@ export default defineComponent({
   },
 });
 </script>
-<style lang="scss" scoped>
-.text-me {
-  color: $red;
-}
-</style>
+<style lang="scss" scoped></style>

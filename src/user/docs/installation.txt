@@ -5,6 +5,7 @@ Recommended extensions for VSCode : found in [package]/.vscode/extensions.json f
 Recommended requirements:
     nodejs ^12.22.5
     yarn ^1.22.17
+    sass 1.43.4 compiled with dart2js 2.14.4
 
 To install the project follow next steps:
     cd [package]

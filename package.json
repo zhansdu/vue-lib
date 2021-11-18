@@ -4,7 +4,10 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build"
+    "build": "vue-cli-service build",
+    "sass:compile@common": "sass src/common/assets/styles/main.scss:public/styles/sass/common.css",
+    "sass:compile@user": "sass src/user/assets/styles/main.scss:public/styles/sass/user.css",
+    "sass:compile@admin": "sass src/admin/assets/styles/main.scss:public/styles/sass/admin.css"
   },
   "dependencies": {
     "vue": "^3.0.0",
@@ -18,7 +21,6 @@
     "@vue/compiler-sfc": "^3.2.22",
     "sass": "^1.26.5",
     "sass-loader": "^10",
-    "typescript": "~4.1.5",
-    "webpack": "^5.64.1"
+    "typescript": "~4.1.5"
   }
 }

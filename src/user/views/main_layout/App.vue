@@ -1,4 +1,5 @@
 <template>
+  <header-vue></header-vue>
   <router-view v-slot="{ Component }">
     <transition name="scale">
       <component :is="Component" />
@@ -7,6 +8,8 @@
 </template>
 <script lang="ts">
 import { defineComponent } from "@vue/runtime-core";
-
-export default defineComponent({});
+import HeaderVue from "./components/Header.vue";
+export default defineComponent({
+  components: { HeaderVue },
+});
 </script>

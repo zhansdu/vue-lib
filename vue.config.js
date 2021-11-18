@@ -5,11 +5,13 @@ module.exports = {
       entry: "src/user/main.ts",
       template: "public/index.html",
       title: "SDU library",
+      scss_link: "<link rel='stylesheet' href='/styles/sass/user.css' />",
     },
     admin: {
       entry: "src/admin/main.ts",
       template: "public/index.html",
       title: "SDU library admin page",
+      scss_link: "<link rel='stylesheet' href='/styles/sass/admin.css' />",
     },
   },
   configureWebpack: {
@@ -19,16 +21,6 @@ module.exports = {
         "@user": path.resolve(__dirname, "src/user/"),
         "@admin": path.resolve(__dirname, "src/admin/"),
         "@common": path.resolve(__dirname, "src/common/"),
-      },
-    },
-  },
-  css: {
-    loaderOptions: {
-      sass: {
-        additionalData: `
-          @import "@common/assets/styles/colors.scss";
-          @import "@common/assets/styles/fonts.scss";
-        `,
       },
     },
   },
