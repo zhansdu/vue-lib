@@ -1,0 +1,12 @@
+A page that describes the main layout of the project. Is located in src/user/views/main_layout
+Contains:
+    App.vue -> /main_layout/App.vue -> main file of the main layout. contains header, router and footer. Router routes are in /user/plugins/router/routes.ts
+    Header.vue -> /main_layout/components/Header/Header.vue - main header component
+        Header components -> /main_layout/components/Header/components/ - folder where components are located
+            Login.vue -> /main_layout/components/Header/components/Login.vue - component where the login logic is written
+            Navbar.vue -> /main_layout/components/Header/components/Navbar.vue - component where the navbar layout is located
+            WhiteBar.vue -> /main_layout/components/Header/components/WhiteBar.vue - component where the white navbar layout is located
+    Footer.vue -> /main_layout/components/Footer/Footer.vue - main footer component. All components are placed inside
+
+Common properties: 
+    links.ts -> /main_layout/composables/links.ts - list of links that are shown in header and footer.

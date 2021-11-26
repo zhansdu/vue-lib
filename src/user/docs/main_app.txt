@@ -1,0 +1,18 @@
+The project is located in /src/user
+Contains: 
+    assets -> assets of the project 
+        icons - icons
+        styles - directory for all secondary styles of the project. all styles should be imported in main.scss
+    components -> common components used in the project. for example : Checkbox.vue
+    composables -> where common code is located. same as mixins for vue2 
+    docs -> directory where all the documentation is located
+    plugins ->
+        locale -> main directory for vue-i18n plugin. used to translate the project
+        router -> main directory for router. 
+        store -> main direcotory for store
+    views -> directory where all views ( used in router-view ) are located
+
+    App.vue -> main app component of the project
+        contains:
+            AppVue - main layout ( where router-view is located ) imported from /src/user/views/_main_layout/App.vue
+            import 'vue-i18n' to use vue-i18n library globally
