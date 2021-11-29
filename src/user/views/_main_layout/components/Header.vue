@@ -1,10 +1,16 @@
 <template>
-  <div class="text-green">Hello kitty says the Header</div>
-  <div class="text-green">{{ $t("hello_world") }}</div>
+  <section tag="white_nav">
+    <white-nav-vue></white-nav-vue>
+  </section>
+  <section tag="blue_nav">
+    <blue-nav-vue></blue-nav-vue>
+  </section>
 </template>
 <script lang="ts">
 import { defineComponent } from "@vue/runtime-core";
-
-export default defineComponent({});
+import WhiteNavVue from "./WhiteNav.vue";
+import BlueNavVue from "./BlueNav.vue";
+export default defineComponent({
+  components: { WhiteNavVue, BlueNavVue },
+});
 </script>
-<style lang="scss" scoped></style>

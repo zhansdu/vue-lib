@@ -2,7 +2,9 @@
   <header-vue></header-vue>
   <router-view v-slot="{ Component }">
     <transition name="scale">
-      <component :is="Component" />
+      <div>
+        <component :is="Component" />
+      </div>
     </transition>
   </router-view>
 </template>
@@ -13,7 +15,7 @@ export default defineComponent({
   components: { HeaderVue },
 });
 </script>
-<style>
+<style scoped>
 .scale-enter-active,
 .scale-leave-active {
   transition: all 0.5s ease;

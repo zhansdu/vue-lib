@@ -15,4 +15,3 @@ Contains:
     App.vue -> main app component of the project
         contains:
             AppVue - main layout ( where router-view is located ) imported from /src/user/views/_main_layout/App.vue
-            import 'vue-i18n' to use vue-i18n library globally

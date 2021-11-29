@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":["../../../src/user/assets/styles/main.scss"],"names":[],"mappings":"AAAA;EACE","file":"user.css"}
+{"version":3,"sourceRoot":"","sources":["../../../src/user/assets/styles/common.scss"],"names":[],"mappings":"AAAA;EACE;EACA;;;AAEF;EACE;;;AAEF;EACE;;;AAEF;EACE","file":"user.css"}

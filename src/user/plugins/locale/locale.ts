@@ -5,7 +5,7 @@ import ru from "./ru";
 import kz from "./kz";
 
 const i18n = createI18n({
-  locale: localStorage.getItem("locale") ?? "en",
+  locale: localStorage.getItem("lang") ?? "en",
   fallbackLocale: "en",
   messages: {
     en,
@@ -13,6 +13,7 @@ const i18n = createI18n({
     kz,
   },
   silentTranslationWarn: true,
+  silentFallbackWarn: true,
 });
 
 export default i18n;

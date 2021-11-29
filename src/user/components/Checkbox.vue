@@ -6,13 +6,11 @@
         state,
       'disabled border-darkgrey': disabled,
     }"
-    :style="state ? option(options, 'clicked', 'style') : ''"
     @click="item_click"
   />
 </template>
 <script lang="ts">
 import { defineComponent, ref, watch } from "@vue/runtime-core";
-import { option } from "./mixins/Option";
 export default defineComponent({
   emits: ["change", "update:modelValue"],
   props: {
@@ -20,7 +18,6 @@ export default defineComponent({
     disabled: Boolean,
     checked: Boolean,
     value: Object,
-    options: Object,
   },
   setup(props, context) {
     const state = ref(props.checked);
@@ -42,7 +39,6 @@ export default defineComponent({
     return {
       state,
       item_click,
-      option,
     };
   },
 });

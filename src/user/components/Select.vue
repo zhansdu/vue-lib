@@ -11,33 +11,43 @@
     <div v-if="required">
       <input type="text" v-model="modelValue" required />
     </div>
-    <div class="d-flex justify-content-between align-items-center cursor-pointer w-100">
+    <div
+      class="d-flex justify-content-between align-items-center cursor-pointer w-100"
+    >
       <!-- label -->
       <div class="d-flex align-items-center" v-if="multiple">
         <div
           class="m-1 p-1 px-2 bg-lightblue rounded-pill"
-          :class="option(options, 'multiple_title', 'class')"
-          :style="option(options, 'multiple_title', 'style')"
           v-for="(label, index) in multiple_title()"
+          :class="title.class"
+          :style="title.style"
           :key="index"
           @click="multiple_title_click(+index)"
-        >{{ $t(item_label(label)) }}</div>
+        >
+          {{ $t(item_label(label)) }}
+        </div>
       </div>
       <div
         v-else
-        :class="option(options, 'title', 'class')"
-        :style="option(options, 'title', 'style')"
+        :class="title.class"
+        :style="title.style"
         @click="
           () => {
             show();
           }
         "
-      >{{ $t(label) }}</div>&nbsp;
-      <div class="rotate" @click="
-        () => {
-          show();
-        }
-      ">
+      >
+        {{ $t(label) }}
+      </div>
+      &nbsp;
+      <div
+        class="rotate"
+        @click="
+          () => {
+            show();
+          }
+        "
+      >
         <CaretUp />
       </div>
     </div>
@@ -47,16 +57,18 @@
     <div ref="select" class="results bg-white shadow-sm pl-3 transition">
       <div
         class="py-2 cursor-pointer"
-        :class="option(options, 'item', 'class')"
-        :style="option(options, 'item', 'style')"
         v-for="(item, index) in items"
+        :class="item.class"
+        :style="item.style"
         :key="index"
         @click="
           () => {
             item_click(item);
           }
         "
-      >{{ $t(item_label(item)) }}</div>
+      >
+        {{ $t(item_label(item)) }}
+      </div>
     </div>
   </div>
 </template>
@@ -64,14 +76,17 @@
 // icons
 import CaretUp from "@user/common/assets/icons/CaretUp.vue";
 import { defineComponent, ref, PropType, watchEffect } from "@vue/runtime-core";
-import { option } from './mixins/Option'
 type Title = {
   placeholder?: string;
   label?: string;
+  class?: string | object | Array<string>;
+  style?: string | object | Array<string>;
 };
 
 type Item = {
   name: string;
+  class?: string | object | Array<string>;
+  style?: string | object | Array<string>;
 };
 
 export default defineComponent({
@@ -89,10 +104,6 @@ export default defineComponent({
     items: {
       type: Array as PropType<Array<Item | any>>,
       required: true,
-    },
-    options: {
-      type: Object,
-      required: false
     },
     disabled: Boolean,
     required: Boolean,
@@ -129,7 +140,7 @@ export default defineComponent({
         if (props.modelValue != null) {
           if (!props.multiple) {
             if (props.title.label != null) {
-              label.value = (props.modelValue as Object)[props.title.label];
+              label.value = (props.modelValue as Record<string,string | number>)[props.title.label].toString();
             }
             else {
               label.value = props.modelValue.toString();
@@ -153,7 +164,7 @@ export default defineComponent({
       let title = props.title;
 
       if (title.label) {
-        return (item as Object)[title.label]
+        return (item as Record<string,string | number>)[title.label].toString();
       }
       else {
         return item.toString();
@@ -177,7 +188,6 @@ export default defineComponent({
       item_label,
       multiple_title,
       multiple_title_click,
-      option
     };
   }
 });
