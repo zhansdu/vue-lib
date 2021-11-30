@@ -36,11 +36,11 @@ import { Options } from "@/common/types/Options";
 type Item = {
   name: string;
   value?: string;
-  link?: string | Object;
+  link?: string | Record<string, unknown>;
   invisible?: boolean;
   target?: string;
-  class?: string | object | Array<string>;
-  style?: string | object | Array<string>;
+  class?: string | Record<string, unknown> | Array<string>;
+  style?: string | Record<string, unknown> | Array<string>;
 };
 type Title = {
   name?: string;
@@ -65,8 +65,6 @@ export default defineComponent({
     },
   },
   setup(props, context) {
-    const title = props.title;
-
     const item_click = (item: Item): void => {
       context.emit("update:modelValue", item.value ?? item.toString());
       context.emit("click", item);
@@ -98,7 +96,7 @@ export default defineComponent({
 
     const data = props.items.filter((item) => !item.invisible);
 
-    return { item_click, data, title, placeholder };
+    return { item_click, data, placeholder };
   },
 });
 </script>

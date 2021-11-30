@@ -18,8 +18,8 @@
 import { defineComponent, PropType, ref, watch } from "@vue/runtime-core";
 
 type Options = {
-  class?: string | object | Array<string>;
-  style?: string | object | Array<string>;
+  class?: string | Record<string, unknown> | Array<string>;
+  style?: string | Record<string, unknown> | Array<string>;
 };
 
 export default defineComponent({

@@ -1,3 +1,8 @@
 {
-  "recommendations": ["johnsoncodehk.volar","octref.vetur","esbenp.prettier-vscode"]
+  "recommendations": [
+    "johnsoncodehk.volar",
+    "octref.vetur",
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint"
+  ]
 }

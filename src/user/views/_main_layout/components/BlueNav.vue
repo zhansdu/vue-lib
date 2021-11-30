@@ -19,7 +19,8 @@
         <a
           class="nav-link link font-weight-bold"
           href="#"
-          v-for="link in links"
+          v-for="(link, index) in links"
+          :key="index"
           >{{ link.name.toUpperCase() }}</a
         >
       </div>
