@@ -19,8 +19,8 @@
         <div
           class="m-1 p-1 px-2 bg-lightblue rounded-pill"
           v-for="(label, index) in multiple_title()"
-          :class="title.class"
-          :style="title.style"
+          :class="options?.title?.class"
+          :style="options?.title?.style"
           :key="index"
           @click="multiple_title_click(+index)"
         >
@@ -29,8 +29,8 @@
       </div>
       <div
         v-else
-        :class="title.class"
-        :style="title.style"
+        :class="options?.title?.class"
+        :style="options?.title?.style"
         @click="
           () => {
             show();
@@ -58,8 +58,8 @@
       <div
         class="py-2 cursor-pointer"
         v-for="(item, index) in items"
-        :class="item.class"
-        :style="item.style"
+        :class="[item.class, options?.item?.class]"
+        :style="[item.class, options?.item?.style]"
         :key="index"
         @click="
           () => {
@@ -76,17 +76,12 @@
 // icons
 import CaretUp from "@user/common/assets/icons/CaretUp.vue";
 import { defineComponent, ref, PropType, watchEffect } from "@vue/runtime-core";
+
+// types
+import {Options} from '@/common/types/Options'
 type Title = {
   placeholder?: string;
   label?: string;
-  class?: string | object | Array<string>;
-  style?: string | object | Array<string>;
-};
-
-type Item = {
-  name: string;
-  class?: string | object | Array<string>;
-  style?: string | object | Array<string>;
 };
 
 export default defineComponent({
@@ -102,15 +97,23 @@ export default defineComponent({
       required: true,
     },
     items: {
-      type: Array as PropType<Array<Item | any>>,
+      type: Array as PropType<Array<any>>,
       required: true,
     },
-    disabled: Boolean,
-    required: Boolean,
+    disabled: {
+      type:Boolean,required:false
+    },
+    required: {
+      type:Boolean,required:false
+    },
     multiple: {
       type: Boolean,
       default: false
     },
+    options:{
+      type:Object as PropType<Options>,
+      required:false
+    }
   },
   components: { CaretUp },
   setup(props, context) {
@@ -133,7 +136,7 @@ export default defineComponent({
       (select.value as HTMLDivElement).style.maxHeight = width.value + "px";
     };
 
-    const label = ref(props.title.placeholder ?? (props.items as Array<Item>)[0].name ?? (props.items as Array<any>)[0]);
+    const label = ref(props.title.placeholder ?? props.items[0].name ?? props.items[0]);
 
     watchEffect(
       () => {
@@ -149,7 +152,7 @@ export default defineComponent({
         }
       });
 
-    const item_click = (item: Item | any): void => {
+    const item_click = (item: any): void => {
       if (!props.multiple) {
         show(false);
         context.emit("update:modelValue", item.name ?? item.toString());
@@ -160,11 +163,11 @@ export default defineComponent({
       context.emit("change", item);
     };
 
-    const item_label = (item: Item | any): string => {
+    const item_label = (item: any): string => {
       let title = props.title;
 
       if (title.label) {
-        return (item as Record<string,string | number>)[title.label].toString();
+        return item[title.label].toString();
       }
       else {
         return item.toString();

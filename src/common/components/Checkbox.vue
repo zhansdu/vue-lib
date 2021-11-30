@@ -1,23 +1,54 @@
 <template>
   <div
     class="relative checkbox border-darkgrey cursor-pointer"
-    :class="{
-      'd-flex align-items-center justify-content-center border-orange clicked':
-        state,
-      'disabled border-darkgrey': disabled,
-    }"
+    :class="[
+      options?.class,
+      round ? 'round' : 'square',
+      {
+        'd-flex align-items-center justify-content-center border-orange clicked':
+          state,
+        'disabled border-darkgrey': disabled,
+      },
+    ]"
+    :style="options?.style"
     @click="item_click"
   />
 </template>
 <script lang="ts">
-import { defineComponent, ref, watch } from "@vue/runtime-core";
+import { defineComponent, PropType, ref, watch } from "@vue/runtime-core";
+
+type Options = {
+  class?: string | object | Array<string>;
+  style?: string | object | Array<string>;
+};
+
 export default defineComponent({
   emits: ["change", "update:modelValue"],
   props: {
-    modelValue: [Object, String, Boolean, Number, Array],
-    disabled: Boolean,
-    checked: Boolean,
-    value: Object,
+    modelValue: {
+      type: Object as PropType<any>,
+      required: false,
+    },
+    disabled: {
+      type: Boolean,
+      required: false,
+    },
+    checked: {
+      type: Boolean,
+      required: false,
+    },
+    value: {
+      type: Object,
+      required: false,
+    },
+    round: {
+      type: Boolean,
+      required: false,
+    },
+    options: {
+      type: Object as PropType<Options>,
+      required: false,
+    },
   },
   setup(props, context) {
     const state = ref(props.checked);
@@ -49,7 +80,14 @@ export default defineComponent({
   max-width: 1.25em;
   height: 1.25em;
   border: 0.125em solid;
-  border-radius: 0.25em;
+}
+
+.square {
+  border-radius: 0.3125em;
+}
+.round,
+.round.clicked:after {
+  border-radius: 50%;
 }
 
 .clicked::after {

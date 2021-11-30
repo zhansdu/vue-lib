@@ -20,7 +20,7 @@
 </template>
 <script lang="ts">
 import { defineComponent, ref } from "@vue/runtime-core";
-import DropdownVue from "@/user/components/Dropdown.vue";
+import DropdownVue from "@/common/components/Dropdown.vue";
 import i18n from "@/user/plugins/locale/locale";
 
 export default defineComponent({
