@@ -57,10 +57,9 @@
     <div ref="select" class="results bg-white shadow-sm pl-3 transition">
       <div
         class="py-2 cursor-pointer"
-        v-for="(item, index) in items"
+        v-for="item in items"
         :class="[item.class, options?.item?.class]"
         :style="[item.class, options?.item?.style]"
-        :key="index"
         @click="
           () => {
             item_click(item);

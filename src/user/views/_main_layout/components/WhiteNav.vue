@@ -7,7 +7,7 @@
       <section class="d-flex align-items-center">
         <dropdown-vue
           :items="dropdown_items"
-          :title="dropdown_title"
+          :options="dropdown_options"
           v-model="$i18n.locale"
           @click="changeLocale"
         ></dropdown-vue>
@@ -28,7 +28,6 @@ export default defineComponent({
     DropdownVue,
   },
   setup() {
-    const locale = ref("");
     function changeLocale() {
       localStorage.setItem("lang", i18n.global.locale);
     }
@@ -44,10 +43,12 @@ export default defineComponent({
         return lang;
       })
     );
-    const dropdown_title = ref({
-      class: "text-decoration-none text-black dropdown-toggle",
+    const dropdown_options = ref({
+      title: {
+        class: "cursor-pointer text-decoration-none text-black dropdown-toggle",
+      },
     });
-    return { dropdown_items, dropdown_title, locale, changeLocale };
+    return { dropdown_items, dropdown_options, changeLocale };
   },
 });
 </script>
