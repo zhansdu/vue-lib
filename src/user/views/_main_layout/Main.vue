@@ -10,7 +10,7 @@
 </template>
 <script lang="ts">
 import { defineComponent } from "@vue/runtime-core";
-import HeaderVue from "./components/Header.vue";
+import HeaderVue from "./components/header/Header.vue";
 export default defineComponent({
   components: { HeaderVue },
 });

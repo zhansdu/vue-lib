@@ -30,17 +30,24 @@
 </template>
 <script lang="ts">
 import { PropType, defineComponent, computed } from "@vue/runtime-core";
-
-// types
-import { Options } from "@/common/types/Options";
+type DropdownOptions = {
+  item?: {
+    class?: string | Record<string, boolean> | Array<string>;
+    style?: string | Record<string, boolean> | Array<string>;
+  };
+  title?: {
+    class?: string | Record<string, boolean> | Array<string>;
+    style?: string | Record<string, boolean> | Array<string>;
+  };
+};
 type Item = {
   name: string;
   value?: string;
-  link?: string | Record<string, unknown>;
+  link?: string | Record<string, string>;
   invisible?: boolean;
   target?: string;
-  class?: string | Record<string, unknown> | Array<string>;
-  style?: string | Record<string, unknown> | Array<string>;
+  class?: string | Record<string, boolean> | Array<string>;
+  style?: string | Record<string, boolean> | Array<string>;
 };
 type Title = {
   name?: string;
@@ -60,7 +67,7 @@ export default defineComponent({
       required: false,
     },
     options: {
-      type: Object as PropType<Options>,
+      type: Object as PropType<DropdownOptions>,
       required: false,
     },
   },

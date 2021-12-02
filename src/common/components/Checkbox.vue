@@ -17,16 +17,16 @@
 <script lang="ts">
 import { defineComponent, PropType, ref, watch } from "@vue/runtime-core";
 
-type Options = {
-  class?: string | Record<string, unknown> | Array<string>;
-  style?: string | Record<string, unknown> | Array<string>;
+type CheckboxOptions = {
+  class?: string | Record<string, boolean> | Array<string>;
+  style?: string | Record<string, boolean> | Array<string>;
 };
 
 export default defineComponent({
   emits: ["change", "update:modelValue"],
   props: {
     modelValue: {
-      type: Object as PropType<any>,
+      type: Object as PropType<unknown>,
       required: false,
     },
     disabled: {
@@ -46,7 +46,7 @@ export default defineComponent({
       required: false,
     },
     options: {
-      type: Object as PropType<Options>,
+      type: Object as PropType<CheckboxOptions>,
       required: false,
     },
   },
