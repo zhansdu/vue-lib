@@ -1,6 +1,6 @@
 import { createApp } from "vue";
-import router from "./plugins/router/router";
-import i18n from "./plugins/locale/locale";
+import { router } from "./plugins/router/router";
+import { i18n } from "./plugins/locale/locale";
 import App from "./App.vue";
 
 const app = createApp(App);

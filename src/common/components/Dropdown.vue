@@ -6,24 +6,25 @@
       :class="options?.title?.class"
       :style="options?.title?.style"
     >
-      <span>{{ $t(placeholder).toUpperCase() }}</span>
+      <span v-if="title?.uppercase">{{ $t(placeholder).toUpperCase() }}</span>
+      <span v-else>{{ $t(placeholder) }}</span>
     </a>
     <ul class="dropdown-menu">
       <li v-for="(item, index) in data" :key="index">
-        <router-link
+        <a
           class="dropdown-item"
           :target="item.target ?? ''"
-          :to="item.link ?? ''"
+          :href="item.link ?? 'javascript:;'"
           :class="[item.class, options?.item?.class]"
-          :style="[item.style, options?.item?.style]"
+          :style="item.style ?? options?.item?.style"
           @click="
             () => {
               item_click(item);
             }
           "
         >
-          {{ $t(item.name ?? item.value ?? item) }}
-        </router-link>
+          {{ $t(item.label ?? item.value ?? item) }}
+        </a>
       </li>
     </ul>
   </div>
@@ -41,16 +42,16 @@ type DropdownOptions = {
   };
 };
 type Item = {
-  name: string;
+  label: string;
   value?: string;
-  link?: string | Record<string, string>;
+  link?: string;
   invisible?: boolean;
   target?: string;
   class?: string | Record<string, boolean> | Array<string>;
   style?: string | Record<string, boolean> | Array<string>;
 };
 type Title = {
-  name?: string;
+  label?: string;
   uppercase?: boolean;
 };
 
@@ -85,23 +86,20 @@ export default defineComponent({
             item.toString() == props.modelValue
         );
 
-        return item?.name ?? item?.value ?? (item as Item).toString();
+        return item?.label ?? item?.value ?? (item as Item).toString();
       } else {
         if (props.title) {
-          if (props.title.name) {
-            if (props.title.uppercase) {
-              return props.title.name?.toUpperCase() ?? "";
-            } else {
-              return props.title.name;
-            }
+          if (props.title.label) {
+            return props.title.label;
           }
         }
         let item = props.items[0];
-        return item.name ?? item.value ?? item.toString();
+        return item.label ?? item.value ?? item.toString();
       }
     });
 
     const data = props.items.filter((item) => !item.invisible);
+    console.log(props.items);
 
     return { item_click, data, placeholder };
   },

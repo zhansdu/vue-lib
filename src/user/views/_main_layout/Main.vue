@@ -11,8 +11,22 @@
 <script lang="ts">
 import { defineComponent } from "@vue/runtime-core";
 import HeaderVue from "./components/header/Header.vue";
+import locale from "./locale/locale";
+import { addLocale } from "@/user/plugins/locale/locale";
+import DropdownVue from "@/common/components/Dropdown.vue";
+import SelectVue from "@/user/components/Select.vue";
+
 export default defineComponent({
-  components: { HeaderVue },
+  components: { HeaderVue, DropdownVue, SelectVue },
+  setup() {
+    addLocale(locale.en, "en");
+    addLocale(locale.ru, "ru");
+    addLocale(locale.kz, "kz");
+    const dropdown_items = [{ label: "aa" }, { label: "string" }];
+    return {
+      dropdown_items,
+    };
+  },
 });
 </script>
 <style scoped>

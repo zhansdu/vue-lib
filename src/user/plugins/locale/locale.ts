@@ -4,16 +4,23 @@ import en from "./en";
 import ru from "./ru";
 import kz from "./kz";
 
-const i18n = createI18n({
+const messages = {
+  en,
+  ru,
+  kz,
+};
+
+export const i18n = createI18n({
   locale: localStorage.getItem("lang") ?? "en",
   fallbackLocale: "en",
-  messages: {
-    en,
-    ru,
-    kz,
-  },
+  messages: messages,
   silentTranslationWarn: true,
   silentFallbackWarn: true,
 });
 
-export default i18n;
+export function addLocale(
+  data: Record<string, unknown>,
+  key: keyof typeof messages
+): void {
+  Object.assign(messages[key], data);
+}

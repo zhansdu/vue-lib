@@ -21,7 +21,7 @@
 <script lang="ts">
 import { defineComponent, ref } from "@vue/runtime-core";
 import DropdownVue from "@/common/components/Dropdown.vue";
-import i18n from "@/user/plugins/locale/locale";
+import { i18n } from "@/user/plugins/locale/locale";
 
 export default defineComponent({
   components: {
@@ -35,10 +35,10 @@ export default defineComponent({
     const dropdown_items = ref(
       languages.map((lang_name: string) => {
         let lang = {
-          name: "",
+          label: "",
           value: "",
         };
-        lang.name = lang_name.toUpperCase();
+        lang.label = lang_name.toUpperCase();
         lang.value = lang_name;
         return lang;
       })

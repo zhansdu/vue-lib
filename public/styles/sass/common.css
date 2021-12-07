@@ -58,6 +58,10 @@
   font-size: 2.5em;
 }
 
+.font-weight-bold {
+  font-weight: 500;
+}
+
 .bg-darkgrey {
   background-color: #b5bac7 !important;
 }
@@ -291,32 +295,32 @@
 }
 
 .bg-darkblue {
-  background-color: #00246a !important;
+  background-color: #082673 !important;
 }
 
 .text-darkblue {
-  color: #00246a !important;
+  color: #082673 !important;
 }
 
 .border-darkblue {
-  border-color: #00246a !important;
+  border-color: #082673 !important;
 }
 
 .outline-darkblue {
-  color: #00246a !important;
-  border: #00246a !important;
+  color: #082673 !important;
+  border: #082673 !important;
 }
 .outline-darkblue :hover {
-  background-color: #00246a !important;
+  background-color: #082673 !important;
   color: white;
 }
 
 .text-hover-darkblue :hover {
-  color: #00246a !important;
+  color: #082673 !important;
 }
 
 .bg-hover-darkblue :hover {
-  background-color: #00246a !important;
+  background-color: #082673 !important;
 }
 
 .bg-green {

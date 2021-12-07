@@ -9,7 +9,16 @@
     "
   >
     <div v-if="required">
-      <input type="text" v-model="modelValue" required />
+      <input
+        type="text"
+        @change="
+          ($event) => {
+            $emit('update:modelValue', ($event.target as HTMLInputElement).value);
+          }
+        "
+        :value="modelValue"
+        required
+      />
     </div>
     <div
       class="d-flex justify-content-between align-items-center cursor-pointer w-100"
@@ -57,9 +66,10 @@
     <div ref="select" class="results bg-white shadow-sm pl-3 transition">
       <div
         class="py-2 cursor-pointer"
-        v-for="item in items"
-        :class="[item.class, options?.item?.class]"
-        :style="[item.class, options?.item?.style]"
+        v-for="(item, index) in items"
+        :key="index"
+        :class="options?.item?.class"
+        :style="options?.item?.style"
         @click="
           () => {
             item_click(item);
@@ -73,16 +83,26 @@
 </template>
 <script type="text/javascript" lang="ts">
 // icons
-import CaretUp from "@user/common/assets/icons/CaretUp.vue";
-import { defineComponent, ref, PropType, watchEffect } from "@vue/runtime-core";
+import CaretUp from "@common/assets/icons/CaretUp.vue";
+import { defineComponent, ref, PropType, watchEffect} from "@vue/runtime-core";
 
-// types
-import {Options} from '@/common/types/Options'
+type SelectOptions = {
+  item?: {
+    class?: string | Record<string, boolean> | Array<string>;
+    style?: string | Record<string, boolean> | Array<string>;
+  };
+  title?: {
+    class?: string | Record<string, boolean> | Array<string>;
+    style?: string | Record<string, boolean> | Array<string>;
+  };
+}
 type Title = {
   placeholder?: string;
   label?: string;
 };
-
+type Item={
+  label:string;
+}
 export default defineComponent({
   emits: ["change", "update:modelValue"],
   props: {
@@ -96,7 +116,7 @@ export default defineComponent({
       required: true,
     },
     items: {
-      type: Array as PropType<Array<any>>,
+      type: Array as PropType<Array<Item | unknown>>,
       required: true,
     },
     disabled: {
@@ -110,32 +130,32 @@ export default defineComponent({
       default: false
     },
     options:{
-      type:Object as PropType<Options>,
+      type:Object as PropType<SelectOptions>,
       required:false
     }
   },
   components: { CaretUp },
   setup(props, context) {
-    const width = ref(0);
-    const select = ref<HTMLDivElement>();
+    const select_height = ref(0);
     const shown = ref(false);
 
     const show = (show?: boolean): void => {
+      let select = ref<HTMLDivElement>();
       if (show == undefined) {
         shown.value = !shown.value;
       }
       shown.value = show as boolean;
       if (shown.value) {
         let docHeight = window.innerHeight - (select.value as HTMLDivElement).getBoundingClientRect().bottom;
-        width.value = docHeight > 250 ? 250 : docHeight;
+        select_height.value = docHeight > 250 ? 250 : docHeight;
       }
       else {
-        width.value = 0;
+        select_height.value = 0;
       }
-      (select.value as HTMLDivElement).style.maxHeight = width.value + "px";
+      (select.value as HTMLDivElement).style.maxHeight = select_height.value + "px";
     };
 
-    const label = ref(props.title.placeholder ?? props.items[0].name ?? props.items[0]);
+    const label = ref(props.title.placeholder ?? (props.items[0] as Item).label ?? props.items[0]);
 
     watchEffect(
       () => {
@@ -149,42 +169,40 @@ export default defineComponent({
             }
           }
         }
-      });
+      }
+    );
 
-    const item_click = (item: any): void => {
+    const item_click = (item: Item | unknown): void => {
       if (!props.multiple) {
         show(false);
-        context.emit("update:modelValue", item.name ?? item.toString());
+        context.emit("update:modelValue", (item as Item).label ?? (item as Item).toString());
       }
       else {
-        (props.modelValue as Array<any>).push(item);
+        (props.modelValue as Array<Item | unknown>).push(item);
       }
       context.emit("change", item);
     };
 
-    const item_label = (item: any): string => {
+    const item_label = (item: Item | unknown): string => {
       let title = props.title;
 
       if (title.label) {
-        return item[title.label].toString();
+        return (item as Record<string,string | number | boolean>)[title.label].toString();
       }
       else {
-        return item.toString();
+        return (item as string | number | boolean).toString();
       }
     };
 
-    const multiple_title = (): Array<any> => (props.modelValue as Array<any>);
+    const multiple_title = (): Array<unknown> => (props.modelValue as Array<unknown>);
 
     const multiple_title_click = (index: number) => {
-      let items = props.modelValue as Array<any>;
+      let items = props.modelValue as Array<unknown>;
       items.splice(index, 1);
     };
 
     return {
-      select,
-      width,
       label,
-      shown,
       show,
       item_click,
       item_label,

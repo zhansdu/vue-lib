@@ -1,7 +1,7 @@
 import Home from "@user/views/home/Home.vue";
 // import Search from "@user/pages/search/Search.vue";
 
-const routes = [
+export const routes = [
   {
     path: "/",
     name: "home",
@@ -13,5 +13,3 @@ const routes = [
     component: {},
   },
 ];
-
-export default routes;
