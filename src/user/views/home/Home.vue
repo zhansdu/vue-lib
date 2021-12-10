@@ -1,21 +1,42 @@
 <template>
   <section tag="bg_images">
     <div class="home bg-darkblue padding text-white">
-      <div>Hello kitty</div>
-      <checkbox-vue v-model="model"></checkbox-vue>
+      <tabs-vue :tabs="tabs"></tabs-vue>
     </div>
   </section>
 </template>
 <script lang="ts">
-import { defineComponent, ref } from "@vue/runtime-core";
-import CheckboxVue from "@/common/components/Checkbox.vue";
+import { defineComponent } from "@vue/runtime-core";
+import TabsVue from "@/common/components/Tabs.vue";
+import DropdownVue from "@/common/components/Dropdown.vue";
 export default defineComponent({
   components: {
-    CheckboxVue,
+    TabsVue,
   },
   setup() {
-    const model = ref(23);
-    return { model };
+    const items = [{ label: "Zhax" }];
+    const items_1 = [{ label: "Zhaxes" }, { label: "AAH" }];
+    const tabs = [
+      {
+        label: "Zhan",
+        component: {
+          component: DropdownVue,
+          props: {
+            items: items,
+          },
+        },
+      },
+      {
+        label: "Men",
+        component: {
+          component: DropdownVue,
+          props: {
+            items: items_1,
+          },
+        },
+      },
+    ];
+    return { tabs };
   },
 });
 </script>

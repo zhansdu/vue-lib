@@ -98,8 +98,7 @@ export default defineComponent({
       }
     });
 
-    const data = props.items.filter((item) => !item.invisible);
-    console.log(props.items);
+    const data = computed(() => props.items.filter((item) => !item.invisible));
 
     return { item_click, data, placeholder };
   },

@@ -21,7 +21,7 @@
         ]"
         :style="options?.title?.style"
       >
-        {{ $t(tab.name) }}
+        {{ $t(tab.label) }}
       </div>
       <div
         ref="line"
@@ -33,7 +33,8 @@
     <keep-alive>
       <component
         class="mt-4"
-        :is="tabs[active_tab].component"
+        :is="tabs[active_tab].component.component"
+        v-bind="tabs[active_tab].component.props"
         :class="options?.tab?.class"
         :style="options?.tab?.style"
       />
@@ -42,9 +43,14 @@
 </template>
 <script lang="ts">
 import { Component, defineComponent, PropType, ref } from "@vue/runtime-core";
+import { KeepAlive } from "vue";
+
 type Tab = {
-  name: string;
-  component: Component;
+  label: string;
+  component: {
+    component: Component;
+    props?: Record<string, unknown>;
+  };
 };
 type TabOptions = {
   tab?: {
@@ -79,27 +85,29 @@ export default defineComponent({
       required: false,
     },
   },
+  components: {
+    KeepAlive,
+  },
   setup(props, context) {
     const tab_divs = ref([] as Array<Component>);
     const line = ref({} as HTMLDivElement);
     const active_tab = ref(0);
+
     function moveLine(index: number): void {
-      try {
-        line.value.style.left =
-          (tab_divs.value[index] as HTMLDivElement).offsetLeft + "px";
-        line.value.style.width =
-          (tab_divs.value[index] as HTMLDivElement).offsetWidth + "px";
-      } catch (e) {
-        // pass
-      }
+      line.value.style.left =
+        (tab_divs.value[index] as HTMLDivElement).offsetLeft + "px";
+      line.value.style.width =
+        (tab_divs.value[index] as HTMLDivElement).offsetWidth + "px";
     }
     function set_active_tab(index: number, tab: Tab) {
       context.emit("click", tab);
       active_tab.value = index;
       moveLine(index);
     }
+
     return {
       tab_divs,
+      line,
       active_tab,
       set_active_tab,
     };
