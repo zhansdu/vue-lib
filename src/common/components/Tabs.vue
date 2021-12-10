@@ -42,7 +42,13 @@
   </div>
 </template>
 <script lang="ts">
-import { Component, defineComponent, PropType, ref } from "@vue/runtime-core";
+import {
+  Component,
+  defineComponent,
+  onMounted,
+  PropType,
+  ref,
+} from "@vue/runtime-core";
 import { KeepAlive } from "vue";
 
 type Tab = {
@@ -104,6 +110,10 @@ export default defineComponent({
       active_tab.value = index;
       moveLine(index);
     }
+
+    onMounted(() => {
+      moveLine(0);
+    });
 
     return {
       tab_divs,
