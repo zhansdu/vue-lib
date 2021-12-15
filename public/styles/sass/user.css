@@ -10,9 +10,12 @@
 .link {
   cursor: pointer;
 }
-
-.link:hover {
+.link :hover {
   color: #ff8e0a !important;
+}
+
+.logo {
+  width: 7.5em;
 }
 
 /*# sourceMappingURL=user.css.map */

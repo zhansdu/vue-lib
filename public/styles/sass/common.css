@@ -410,4 +410,62 @@
   background-color: transparent !important;
 }
 
+.bg-inherit {
+  background-color: inherit !important;
+}
+
+.text-inherit {
+  color: inherit !important;
+}
+
+.border-inherit {
+  border-color: inherit !important;
+}
+
+.outline-inherit {
+  color: inherit !important;
+  border: inherit !important;
+}
+.outline-inherit :hover {
+  background-color: inherit !important;
+  color: white;
+}
+
+.text-hover-inherit :hover {
+  color: inherit !important;
+}
+
+.bg-hover-inherit :hover {
+  background-color: inherit !important;
+}
+
+html {
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  color: #333;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.transition,
+.transition > * {
+  transition: 0.3s;
+}
+
+.link {
+  cursor: pointer;
+}
+.link :hover {
+  color: #ff8e0a !important;
+}
+
+.logo {
+  width: 7.5em;
+}
+
 /*# sourceMappingURL=common.css.map */

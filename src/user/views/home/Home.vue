@@ -1,17 +1,35 @@
 <template>
   <section tag="bg_images">
-    <div class="home bg-darkblue padding text-white">
+    <div
+      class="home bg-darkblue padding text-white d-flex align-items-center justify-content-center"
+    >
       <tabs-vue :tabs="tabs"></tabs-vue>
     </div>
+  </section>
+  <section tag="upcoming_events">
+    <upcoming-events-vue></upcoming-events-vue>
+  </section>
+  <section tag="video_content">
+    <video-content-vue></video-content-vue>
+  </section>
+  <section tag="faq">
+    <faq-vue></faq-vue>
   </section>
 </template>
 <script lang="ts">
 import { defineComponent } from "@vue/runtime-core";
 import TabsVue from "@/common/components/Tabs.vue";
 import DropdownVue from "@/common/components/Dropdown.vue";
+
+import UpcomingEventsVue from "./components/upcoming_events/UpcomingEvents.vue";
+import VideoContentVue from "./components/video_content/VideoContent.vue";
+import FaqVue from "./components/faq/FAQ.vue";
 export default defineComponent({
   components: {
     TabsVue,
+    UpcomingEventsVue,
+    VideoContentVue,
+    FaqVue,
   },
   setup() {
     const items = [{ label: "Zhax" }];

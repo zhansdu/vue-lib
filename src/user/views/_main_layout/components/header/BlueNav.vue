@@ -16,13 +16,9 @@
     </button>
     <div class="collapse navbar-collapse justify-content-center py-4">
       <div class="navbar-nav">
-        <div
-          class="font-weight-bold"
-          v-for="(link, index) in links"
-          :key="index"
-        >
+        <div class="font-weight-bold link" v-for="(link, index) in links" :key="index">
           <dropdown-vue
-            class="nav-link link"
+            class="nav-link"
             :items="link.dropdown.links"
             :title="{ label: link.label, uppercase: true }"
             :options="{
@@ -34,7 +30,7 @@
           ></dropdown-vue>
           <a
             v-else
-            class="nav-link link"
+            class="nav-link text-white"
             :href="link.link"
             :target="link.target ?? '_blank'"
             >{{ $t(link.label).toUpperCase() }}</a
@@ -55,13 +51,3 @@ export default defineComponent({
   },
 });
 </script>
-<style scoped lang="scss">
-$logo_width: 7.5em;
-
-a {
-  color: inherit;
-}
-.logo {
-  width: $logo_width;
-}
-</style>

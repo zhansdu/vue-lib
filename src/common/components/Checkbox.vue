@@ -5,8 +5,7 @@
       options?.class,
       round ? 'round' : 'square',
       {
-        'd-flex align-items-center justify-content-center border-orange clicked':
-          state,
+        'd-flex align-items-center justify-content-center border-orange clicked': state,
         'disabled border-darkgrey': disabled,
       },
     ]"

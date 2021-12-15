@@ -81,9 +81,7 @@ export default defineComponent({
     const placeholder = computed((): string => {
       if (props.modelValue) {
         let item = props.items.find(
-          (item) =>
-            item.value == props.modelValue ||
-            item.toString() == props.modelValue
+          (item) => item.value == props.modelValue || item.toString() == props.modelValue
         );
 
         return item?.label ?? item?.value ?? (item as Item).toString();

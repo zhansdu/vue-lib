@@ -23,12 +23,7 @@
       >
         {{ $t(tab.label) }}
       </div>
-      <div
-        ref="line"
-        class="line"
-        :class="options?.line?.class"
-        :style="options?.line?.style"
-      />
+      <div ref="line" class="line" :class="options?.line?.class" :style="options?.line?.style" />
     </div>
     <keep-alive>
       <component
@@ -42,13 +37,7 @@
   </div>
 </template>
 <script lang="ts">
-import {
-  Component,
-  defineComponent,
-  onMounted,
-  PropType,
-  ref,
-} from "@vue/runtime-core";
+import { Component, defineComponent, onMounted, PropType, ref } from "@vue/runtime-core";
 import { KeepAlive } from "vue";
 
 type Tab = {
@@ -100,10 +89,8 @@ export default defineComponent({
     const active_tab = ref(0);
 
     function moveLine(index: number): void {
-      line.value.style.left =
-        (tab_divs.value[index] as HTMLDivElement).offsetLeft + "px";
-      line.value.style.width =
-        (tab_divs.value[index] as HTMLDivElement).offsetWidth + "px";
+      line.value.style.left = (tab_divs.value[index] as HTMLDivElement).offsetLeft + "px";
+      line.value.style.width = (tab_divs.value[index] as HTMLDivElement).offsetWidth + "px";
     }
     function set_active_tab(index: number, tab: Tab) {
       context.emit("click", tab);

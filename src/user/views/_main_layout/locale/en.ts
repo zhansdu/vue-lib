@@ -10,4 +10,5 @@ export default {
     research_consultations: "Research consultations",
     instructor_support: "Instructor support",
   },
+  contacts: { title: "Contacts", data: ["SDU library"] },
 };

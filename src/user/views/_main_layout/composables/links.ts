@@ -90,10 +90,10 @@ export const links: Array<link> = [
   const label = link.label;
   link.label = "links." + label;
   if (link.dropdown) {
-    link.label += ".title";
     link.dropdown.links.forEach((d_link) => {
-      d_link.label = "links." + label + "." + d_link.label;
+      d_link.label = link.label + "." + d_link.label;
     });
+    link.label += ".title";
   }
   return link;
 });
