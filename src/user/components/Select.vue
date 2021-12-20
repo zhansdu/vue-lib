@@ -20,9 +20,7 @@
         required
       />
     </div>
-    <div
-      class="d-flex justify-content-between align-items-center cursor-pointer w-100"
-    >
+    <div class="d-flex justify-content-between align-items-center cursor-pointer w-100">
       <!-- label -->
       <div class="d-flex align-items-center" v-if="multiple">
         <div

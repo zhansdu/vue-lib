@@ -15,24 +15,26 @@
           <div class="d-flex">
             <div class="mr-5 d-flex flex-column">
               <span class="font-size-32 m-auto">{{ (event.date as Date).getDate() }}</span>
-              <span class="mt-2">{{
-                $t("months[" + (event.date  as Date).getMonth() + "]") + ", " + (event.date  as Date).getFullYear()
-              }}</span>
+              <span
+                class="mt-2"
+                v-html="$t('months[' + (event.date  as Date).getMonth() + ']') + ', '  + (event.date  as Date).getFullYear()"
+              />
             </div>
             <div class="text-grey d-flex flex-column justify-content-around">
-              <div>{{ $t("news[" + index + "].place") }}</div>
+              <div v-html="$t('news[' + index + '].place')" />
               <div class="d-flex">
                 {{ event.time_from }}
                 <span v-if="event.time_until">
                   &nbsp;
                   {{ "- " + event.time_until }}
-                  <span v-if="event.date_until">{{
-                    " (" +
+                  <span
+                    v-if="event.date_until"
+                    v-html="' (' +
                     (event.date_until as Date).getDate() +
-                    " " +
-                    $t("months[" + (event.date_until as Date).getMonth() + "]") +
-                    ")"
-                  }}</span>
+                    ' ' +
+                    $t('months[' + (event.date_until as Date).getMonth() + ']') +
+                    ')'"
+                  />
                 </span>
               </div>
             </div>
@@ -45,9 +47,7 @@
               class="d-flex align-items-center justify-content-between text-black cursor-pointer"
               v-if="event.type == 'announcement'"
             >
-              <div class="font-weight-bold font-size-24">
-                {{ $t("news[" + index + "].title") }}
-              </div>
+              <div class="font-weight-bold font-size-24" v-html="$t('news[' + index + '].title')" />
               <div
                 class="rounded-circle bg-white fixed-size d-flex align-items-center justify-content-center"
               >
@@ -60,9 +60,7 @@
               class="d-flex align-items-center justify-content-between text-black cursor-pointer"
               v-else
             >
-              <div class="font-weight-bold font-size-24">
-                {{ $t("news[" + index + "].title") }}
-              </div>
+              <div class="font-weight-bold font-size-24" v-html="$t('news[' + index + '].title')" />
               <div
                 class="rounded-circle bg-white fixed-size d-flex align-items-center justify-content-center"
               >

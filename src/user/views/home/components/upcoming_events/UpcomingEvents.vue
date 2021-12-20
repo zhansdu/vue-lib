@@ -3,14 +3,13 @@
     <section tag="texts">
       <div class="d-flex justify-content-between align-items-center">
         <div class="text-darkblue">
-          <span class="font-size-32 font-weight-bold">
-            {{ $t("upcoming_events").toUpperCase() }}
-          </span>
+          <span
+            class="font-size-32 font-weight-bold"
+            v-html="$t('upcoming_events').toUpperCase()"
+          />
         </div>
         <a class="text-darkblue" :href="$t('libguide.digest.link')">
-          <span>
-            {{ $t("libguide.digest.title") }}
-          </span>
+          <span v-html="$t('libguide.digest.title')" />
           <span class="font-size-14 ms-2">
             <right-normal></right-normal>
           </span>

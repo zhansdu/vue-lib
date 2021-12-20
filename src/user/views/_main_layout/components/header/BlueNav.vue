@@ -33,8 +33,8 @@
             class="nav-link text-white"
             :href="link.link"
             :target="link.target ?? '_blank'"
-            >{{ $t(link.label).toUpperCase() }}</a
-          >
+            v-html="$t(link.label).toUpperCase()"
+          />
         </div>
       </div>
     </div>

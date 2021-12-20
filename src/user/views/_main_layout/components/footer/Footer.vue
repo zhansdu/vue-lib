@@ -21,24 +21,24 @@
               }"
               v-if="link.dropdown"
             ></dropdown-vue>
-            <a v-else :href="link.link" :target="link.target ?? '_blank'">{{ $t(link.label) }}</a>
+            <a v-else :href="link.link" :target="link.target ?? '_blank'" v-html="$t(link.label)" />
           </div>
         </section>
         <section tag="contacts">
-          <div class="mb-3">{{ $t("contacts.title") }}</div>
+          <div class="mb-3" v-html="$t('contacts.title')" />
           <div
             class="mb-2 text-darkgrey font-size-14"
             v-for="(contact, index) in en.contacts.data"
             :key="index"
           >
             <div>
-              <span>{{ $t(contact) }}</span>
+              <span v-html="$t(contact)" />
             </div>
           </div>
         </section>
         <section tag="follow">
           <div>
-            <div class="mb-3">{{ $t("follow_us") }}</div>
+            <div class="mb-3" v-html="$t('follow_us')" />
             <div class="d-flex justify-content-around">
               <a
                 class="d-flex align-items-center justify-content-center me-3 transition icon_wrapper"
