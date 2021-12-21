@@ -1,5 +1,5 @@
 <template>
-  <div class="dropdown">
+  <div class="dropdown" :class="{ dropup: options?.dropup }">
     <a
       class="dropdwon-toggle"
       data-bs-toggle="dropdown"
@@ -40,6 +40,7 @@ type DropdownOptions = {
     class?: string | Record<string, boolean> | Array<string>;
     style?: string | Record<string, boolean> | Array<string>;
   };
+  dropup?: boolean;
 };
 type Item = {
   label: string;

@@ -57,6 +57,14 @@
     <div class="border-top border-lightblue py-3">
       <div class="d-flex justify-content-center align-items-center">
         <div class="text-darkgrey">YEAR</div>
+        <div class="ms-2">
+          <dropdown-vue
+            :items="dropdown_items"
+            :options="dropdown_options"
+            v-model="$i18n.locale"
+            @click="changeLocale"
+          ></dropdown-vue>
+        </div>
       </div>
     </div>
   </div>
@@ -67,6 +75,7 @@ import { defineComponent } from "@vue/runtime-core";
 import en from "../../locale/en";
 // composables
 import { links } from "../../composables/links";
+import { dropdown_items, changeLocale } from "../../composables/locale_dropdown";
 // components
 import DropdownVue from "@/common/components/Dropdown.vue";
 // icons
@@ -77,6 +86,12 @@ import Youtube from "@user/assets/icons/Youtube.vue";
 export default defineComponent({
   components: { DropdownVue },
   setup() {
+    const dropdown_options = {
+      title: {
+        class: "cursor-pointer text-decoration-none text-darkgrey dropdown-toggle",
+      },
+      dropup: true,
+    };
     const icons = [
       { component: Telegram, link: "https://t.me/sdu_library" },
       {
@@ -89,7 +104,7 @@ export default defineComponent({
       },
       { component: Facebook, link: "https://www.facebook.com/librarysdu" },
     ];
-    return { links, en, icons };
+    return { links, en, icons, dropdown_items, dropdown_options, changeLocale };
   },
 });
 </script>

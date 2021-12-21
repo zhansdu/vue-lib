@@ -19,36 +19,25 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent, ref } from "@vue/runtime-core";
+import { defineComponent } from "@vue/runtime-core";
 import DropdownVue from "@/common/components/Dropdown.vue";
-import { i18n } from "@/user/plugins/locale/locale";
+import { dropdown_items, changeLocale } from "../../composables/locale_dropdown";
 
 export default defineComponent({
   components: {
     DropdownVue,
   },
   setup() {
-    function changeLocale() {
-      localStorage.setItem("lang", i18n.global.locale);
-    }
-    const languages = Object.keys(i18n.global.messages);
-    const dropdown_items = ref(
-      languages.map((lang_name: string) => {
-        let lang = {
-          label: "",
-          value: "",
-        };
-        lang.label = lang_name.toUpperCase();
-        lang.value = lang_name;
-        return lang;
-      })
-    );
-    const dropdown_options = ref({
+    const dropdown_options = {
       title: {
         class: "cursor-pointer text-decoration-none text-black dropdown-toggle",
       },
-    });
-    return { dropdown_items, dropdown_options, changeLocale };
+    };
+    return {
+      dropdown_items,
+      dropdown_options,
+      changeLocale,
+    };
   },
 });
 </script>
