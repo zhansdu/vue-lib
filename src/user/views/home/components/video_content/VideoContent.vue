@@ -38,6 +38,7 @@
   </div>
 </template>
 <script lang="ts">
+// core
 import { defineComponent } from "@vue/runtime-core";
 
 type Video = {

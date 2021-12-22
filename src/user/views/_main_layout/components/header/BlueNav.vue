@@ -15,7 +15,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse justify-content-center py-4">
-      <div class="navbar-nav">
+      <div class="navbar-nav text-nowrap">
         <div class="font-weight-bold link" v-for="(link, index) in links" :key="index">
           <dropdown-vue
             class="nav-link"
@@ -29,11 +29,11 @@
             v-if="link.dropdown"
           ></dropdown-vue>
           <a
-            v-else
             class="nav-link text-white"
             :href="link.link"
             :target="link.target ?? '_blank'"
             v-html="$t(link.label).toUpperCase()"
+            v-else
           />
         </div>
       </div>

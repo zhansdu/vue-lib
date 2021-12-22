@@ -35,32 +35,11 @@
   </div>
 </template>
 <script lang="ts">
+// core
 import { defineComponent } from "@vue/runtime-core";
 
-const faqQuestionScripts = [
-  // faq questions
-  // en
-  "https://sdu-kz.libanswers.com/1.0/widgets/7615",
-  // ru
-  "https://sdu-kz.libanswers.com/1.0/widgets/7792",
-  // kz
-  "https://sdu-kz.libanswers.com/1.0/widgets/7809",
-];
-
-const faqAskScripts = [
-  // faq ask
-  // en
-  "https://sdu-kz.libanswers.com/1.0/widgets/7614",
-  // ru
-  "https://sdu-kz.libanswers.com/1.0/widgets/7815",
-  // kz
-  "https://sdu-kz.libanswers.com/1.0/widgets/7814",
-];
-
-type Link = {
-  id: string;
-  language: string;
-};
+// composables
+import { faqQuestionScripts, faqAskScripts, loadScript, Link } from "../../composables/links";
 
 export default defineComponent({
   setup() {
@@ -95,12 +74,6 @@ export default defineComponent({
     ];
 
     function loadAllScripts() {
-      async function loadScript(src: string) {
-        let externalScript = document.createElement("script");
-        externalScript.setAttribute("src", src);
-        document.head.appendChild(externalScript);
-      }
-
       let srcs = faqAskScripts.concat(faqQuestionScripts);
 
       srcs.forEach((item) => {

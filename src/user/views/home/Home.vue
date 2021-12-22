@@ -15,21 +15,29 @@
   <section tag="faq">
     <faq-vue></faq-vue>
   </section>
+  <section tag="chat">
+    <chat-vue></chat-vue>
+  </section>
 </template>
 <script lang="ts">
+// boot
 import { defineComponent } from "@vue/runtime-core";
+// common components
 import TabsVue from "@/common/components/Tabs.vue";
 import DropdownVue from "@/common/components/Dropdown.vue";
-
+// local components
 import UpcomingEventsVue from "./components/upcoming_events/UpcomingEvents.vue";
 import VideoContentVue from "./components/video_content/VideoContent.vue";
 import FaqVue from "./components/faq/FAQ.vue";
+import ChatVue from "./components/chat/Chat.vue";
+
 export default defineComponent({
   components: {
     TabsVue,
     UpcomingEventsVue,
     VideoContentVue,
     FaqVue,
+    ChatVue,
   },
   setup() {
     const items = [{ label: "Zhax" }];
