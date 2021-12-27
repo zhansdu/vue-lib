@@ -468,4 +468,24 @@ a {
   width: 7.5em;
 }
 
+/*scrollbars*/
+* {
+  /*firefox only*/
+  scrollbar-color: #c5c5c5 white;
+  scrollbar-width: thin;
+}
+
+::-webkit-scrollbar {
+  width: 0.3125em;
+  height: 0.3125em;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c5c5c5;
+}
+
+::-webkit-scrollbar-track {
+  background: white;
+}
+
 /*# sourceMappingURL=common.css.map */

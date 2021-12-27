@@ -1,6 +1,6 @@
 <template>
-  <div class="bg-lightgrey padding py-5">
-    <div class="position-relative overflow-hidden">
+  <div class="bg-lightgrey position-relative overflow-hidden">
+    <div class="padding py-5">
       <section tag="texts">
         <div class="text-blue">
           <span
@@ -33,7 +33,21 @@
           </div>
         </div>
       </section>
-      <section tag="bottom"></section>
+      <section tag="bottom">
+        <div class="mt-5">
+          <a
+            class="link text-blue"
+            href="https://www.youtube.com/channel/UCmuuTTBkfi8aUgUc56VY8kA"
+            target="_blank"
+          >
+            <span v-html="$t('see_all_videos')" />
+            <span class="ml-2"><right-normal /></span>
+          </a>
+        </div>
+      </section>
+    </div>
+    <div>
+      <img class="video_image" src="@/user/assets/images/Video.svg" />
     </div>
   </div>
 </template>
@@ -41,6 +55,7 @@
 // core
 import { defineComponent } from "@vue/runtime-core";
 
+// types
 type Video = {
   link_embed: string;
   link: string;
@@ -69,5 +84,11 @@ export default defineComponent({
   width: max(100%, 25em);
   max-width: 100%;
   height: 12.5em;
+}
+.video_image {
+  position: absolute;
+  bottom: -40px;
+  right: -40px;
+  z-index: 1;
 }
 </style>
