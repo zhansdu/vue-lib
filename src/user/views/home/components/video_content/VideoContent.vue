@@ -32,8 +32,6 @@
             </div>
           </div>
         </div>
-      </section>
-      <section tag="bottom">
         <div class="mt-5">
           <a
             class="link text-blue"
@@ -41,14 +39,14 @@
             target="_blank"
           >
             <span v-html="$t('see_all_videos')" />
-            <span class="ml-2"><right-normal /></span>
+            <span class="ms-2"><right-normal-vue /></span>
           </a>
         </div>
       </section>
     </div>
-    <div>
+    <section tag="absolute">
       <img class="video_image" src="@/user/assets/images/Video.svg" />
-    </div>
+    </section>
   </div>
 </template>
 <script lang="ts">
@@ -61,7 +59,13 @@ type Video = {
   link: string;
 };
 
+// icons
+import RightNormalVue from "@/common/assets/icons/RightNormal.vue";
+
 export default defineComponent({
+  components: {
+    RightNormalVue,
+  },
   setup() {
     const videos: Array<Video> = [
       {
