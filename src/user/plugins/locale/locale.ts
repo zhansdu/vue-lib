@@ -18,9 +18,6 @@ export const i18n = createI18n({
   silentFallbackWarn: true,
 });
 
-export function addLocale(
-  data: Record<string, unknown>,
-  key: keyof typeof messages
-): void {
+export function addLocale(data: Record<string, unknown>, key: keyof typeof messages): void {
   Object.assign(messages[key], data);
 }

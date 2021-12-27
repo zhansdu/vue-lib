@@ -3,7 +3,7 @@
   <router-view v-slot="{ Component }">
     <component :is="Component" />
   </router-view>
-  <footer-vue></footer-vue>
+  <footer-vue v-if="$router.currentRoute.value.meta.footer"></footer-vue>
 </template>
 <script lang="ts">
 import { defineComponent } from "@vue/runtime-core";

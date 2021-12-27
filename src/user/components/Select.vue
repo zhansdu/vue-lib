@@ -221,23 +221,12 @@ input {
 .results {
   z-index: 1000;
   overflow: hidden;
-}
-.results,
-input {
-  position: absolute;
-  top: 102%;
-  width: 100%;
-  left: 0;
-}
-.results {
-  z-index: 1000;
-  overflow: hidden;
   overflow-y: auto;
   max-height: 0;
 }
 input {
   visibility: hidden;
-  :invalid > label {
+  &:invalid > label {
     color: red;
   }
 }

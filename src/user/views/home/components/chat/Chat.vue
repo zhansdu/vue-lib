@@ -125,14 +125,14 @@ $box_shadow: 0 0.25em 1.875em v.$darkblue;
 }
 .hoverable {
   width: unset;
-}
-.hoverable:hover {
-  max-width: 18em;
-}
-.hoverable:hover .chat_icon {
-  transform: rotate(-360deg);
-  color: v.$white;
-  background-color: v.$darkblue;
+  &:hover {
+    max-width: 18em;
+    & .chat_icon {
+      transform: rotate(-360deg);
+      color: v.$white;
+      background-color: v.$darkblue;
+    }
+  }
 }
 .chat_icon {
   width: $icon_width;

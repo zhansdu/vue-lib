@@ -116,15 +116,15 @@ export default defineComponent({
   border-radius: 50%;
   cursor: pointer;
   background-color: v.$white;
-}
-.icon_wrapper:hover {
-  transform: rotate(180deg);
-  background-color: #ff9d29 !important;
-}
-.icon_wrapper:hover > .icon {
-  transform: rotate(180deg);
-  color: white !important;
-  font-size: 1.6em;
+  &:hover {
+    transform: rotate(180deg);
+    background-color: #ff9d29 !important;
+    & > .icon {
+      transform: rotate(180deg);
+      color: white !important;
+      font-size: 1.6em;
+    }
+  }
 }
 .icon {
   font-size: 1.4em;

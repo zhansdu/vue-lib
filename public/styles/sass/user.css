@@ -1,21 +1,34 @@
+*:focus {
+  outline: none !important;
+}
+
 .padding {
   padding-right: 11vw;
   padding-left: 11vw;
 }
 
-.transition {
-  transition: 0.3s;
+input {
+  padding: 0.625em 1.25em;
+  border: 0.125em solid #ff9d29 !important;
+  border-radius: 0.3125em;
+  caret-color: #ff9d29 !important;
+}
+input [type=text] {
+  min-width: 12.5em;
 }
 
-.link {
-  cursor: pointer;
+button {
+  padding: 0.625em 1.25em;
+  border: none;
+  line-height: 1.3125em;
+  color: #fff !important;
+  background-color: #ff9d29 !important;
+  border-radius: 0.3125em;
 }
-.link :hover {
-  color: #ff8e0a !important;
-}
-
-.logo {
-  width: 7.5em;
+button:disabled, button[disabled] {
+  border: 1px solid #999999 !important;
+  background-color: #cccccc !important;
+  color: #666666 !important;
 }
 
 /*# sourceMappingURL=user.css.map */
