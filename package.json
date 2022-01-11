@@ -6,9 +6,9 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "sass:compile@admin": "sass src/admin/assets/styles/main.scss:public/styles/sass/admin.css",
+    "sass:compile@admin": "sass src/admin/assets/styles/admin.scss:public/styles/sass/admin.css",
     "sass:compile@common": "sass src/common/assets/styles/main.scss:public/styles/sass/common.css",
-    "sass:compile@user": "sass src/user/assets/styles/main.scss:public/styles/sass/user.css"
+    "sass:compile@user": "sass src/user/assets/styles/user.scss:public/styles/sass/user.css"
   },
   "dependencies": {
     "vue": "^3.0.0",

@@ -1,12 +1,14 @@
-@use "../../../common/assets/styles/variables.scss" as v;
-*:focus {
-  outline: none !important;
+@use "../../../common/assets/styles/color_variables.scss" as v;
+* {
+  &:focus {
+    outline: none !important;
+  }
 }
 .padding {
   padding-right: 11vw;
   padding-left: 11vw;
 }
-input {
+.input {
   padding: 0.625em 1.25em;
   border: 0.125em solid v.$orange;
   border-radius: 0.3125em;
@@ -16,7 +18,7 @@ input {
   }
 }
 
-button {
+.button {
   padding: 0.625em 1.25em;
   border: none;
   line-height: 1.3125em;

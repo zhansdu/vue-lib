@@ -1,5 +1,5 @@
 @use "sass:math";
-@use "./variables.scss" as v;
+@use "./color_variables.scss" as v;
 // setting colors
 $colors: (
   "darkgrey": v.$darkgrey,
@@ -18,26 +18,30 @@ $colors: (
 );
 @each $name, $color in $colors {
   .bg-#{$name} {
-    background-color: $color;
+    background-color: $color !important;
   }
   .text-#{$name} {
-    color: $color;
+    color: $color !important;
   }
   .border-#{$name} {
-    border-color: $color;
+    border-color: $color !important;
   }
   .outline-#{$name} {
-    color: $color;
-    border: $color;
-    :hover {
-      background-color: $color;
-      color: white;
+    color: $color !important;
+    border: $color !important;
+    &:hover {
+      background-color: $color !important;
+      color: v.$white !important;
     }
   }
-  .text-hover-#{$name} :hover {
-    color: $color;
+  .text-hover-#{$name} {
+    &:hover {
+      color: $color !important;
+    }
   }
-  .bg-hover-#{$name} :hover {
-    background-color: $color;
+  .bg-hover-#{$name} {
+    &:hover {
+      background-color: $color !important;
+    }
   }
 }

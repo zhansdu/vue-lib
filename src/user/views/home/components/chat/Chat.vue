@@ -102,7 +102,7 @@ export default defineComponent({
 });
 </script>
 <style lang="scss" scoped>
-@use "@/common/assets/styles/variables.scss" as v;
+@use "@/common/assets/styles/color_variables.scss" as v;
 $transition: 400ms;
 $icon_width: 3.75em;
 

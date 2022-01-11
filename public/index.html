@@ -14,17 +14,27 @@
     <!-- common css styles -->
 
     <link rel="stylesheet" href="/styles/icons.css" />
-    <link rel="stylesheet" href="/styles/common.css" />
     <link rel="stylesheet" href="/styles/sass/common.css" />
     <%= htmlWebpackPlugin.options.scss_link %>
 
     <!-- /styles -->
 
     <!-- fonts -->
+
+    <!-- Futura -->
     <link
       href="http://fonts.cdnfonts.com/css/futura-condensed-pt?styles=16586,16592"
       rel="stylesheet"
     />
+
+    <!-- Roboto -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
     <!-- /fonts -->
 
     <title><%= htmlWebpackPlugin.options.title %></title>
@@ -32,9 +42,8 @@
   <body>
     <noscript>
       <strong
-        >We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work
-        properly without JavaScript enabled. Please enable it to
-        continue.</strong
+        >We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without
+        JavaScript enabled. Please enable it to continue.</strong
       >
     </noscript>
     <div id="app"></div>

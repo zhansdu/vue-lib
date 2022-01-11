@@ -7,25 +7,25 @@
   padding-left: 11vw;
 }
 
-input {
+.input {
   padding: 0.625em 1.25em;
-  border: 0.125em solid #ff9d29 !important;
+  border: 0.125em solid #ff9d29;
   border-radius: 0.3125em;
-  caret-color: #ff9d29 !important;
+  caret-color: #ff9d29;
 }
-input [type=text] {
+.input[type=text] {
   min-width: 12.5em;
 }
 
-button {
+.button {
   padding: 0.625em 1.25em;
   border: none;
   line-height: 1.3125em;
-  color: #fff !important;
-  background-color: #ff9d29 !important;
+  color: #fff;
+  background-color: #ff9d29;
   border-radius: 0.3125em;
 }
-button:disabled, button[disabled] {
+.button:disabled, .button[disabled] {
   border: 1px solid #999999 !important;
   background-color: #cccccc !important;
   color: #666666 !important;

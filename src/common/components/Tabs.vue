@@ -1,7 +1,7 @@
 <template>
   <div>
     <div
-      class="tabs position-relative"
+      class="tabs position-relative mb-4"
       :class="options?.parent?.class"
       :style="options?.parent?.style"
     >
@@ -27,7 +27,6 @@
     </div>
     <keep-alive>
       <component
-        class="mt-4"
         :is="tabs[active_tab].component.component"
         v-bind="tabs[active_tab].component.props"
         :class="options?.tab?.class"

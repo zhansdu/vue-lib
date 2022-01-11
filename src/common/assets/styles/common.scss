@@ -1,12 +1,14 @@
+@use "./color_variables.scss" as v;
 $logo_width: 7.5em;
 
-html {
+body {
   font-family: "Roboto", sans-serif;
   font-style: normal;
   font-weight: normal;
   color: #333;
   overflow-x: hidden;
 }
+
 a {
   text-decoration: none;
   color: inherit;
@@ -16,14 +18,29 @@ a {
 .transition > * {
   transition: 0.3s;
 }
+
+.cursor-pointer,
+.cursor-pointer > * {
+  cursor: pointer;
+}
+
 .link {
   cursor: pointer;
-  :hover {
-    color: #ff8e0a !important;
+  & :hover {
+    color: v.$orange !important;
   }
 }
+
 .logo {
   width: $logo_width;
+}
+
+.disabled {
+  pointer-events: none;
+}
+
+.rotate {
+  transform: rotate(180deg);
 }
 
 /*scrollbars*/

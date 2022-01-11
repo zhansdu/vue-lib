@@ -72,7 +72,7 @@
 <script lang="ts">
 // boot
 import { defineComponent } from "@vue/runtime-core";
-import en from "../../locale/en";
+import en from "../../plugins/locale/en";
 // composables
 import { links } from "../../composables/links";
 import { dropdown_items, changeLocale } from "../../composables/locale_dropdown";
@@ -83,6 +83,7 @@ import Instagram from "@user/assets/icons/Instagram.vue";
 import Facebook from "@user/assets/icons/Facebook.vue";
 import Telegram from "@user/assets/icons/Telegram.vue";
 import Youtube from "@user/assets/icons/Youtube.vue";
+
 export default defineComponent({
   components: { DropdownVue },
   setup() {
@@ -109,7 +110,7 @@ export default defineComponent({
 });
 </script>
 <style scoped lang="scss">
-@use "@/common/assets/styles/variables.scss" as v;
+@use "@/common/assets/styles/color_variables.scss" as v;
 .icon_wrapper {
   width: 2.5em;
   height: 2.5em;

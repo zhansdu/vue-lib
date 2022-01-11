@@ -20,32 +20,30 @@
         required
       />
     </div>
-    <div class="d-flex justify-content-between align-items-center cursor-pointer w-100">
-      <!-- label -->
+    <!-- label -->
+    <div
+      class="d-flex justify-content-between align-items-center cursor-pointer w-100"
+      :class="options?.title?.class"
+      :style="options?.title?.style"
+    >
       <div class="d-flex align-items-center" v-if="multiple">
         <div
           class="m-1 p-1 px-2 bg-lightblue rounded-pill"
-          v-for="(label, index) in multiple_title()"
-          :class="options?.title?.class"
-          :style="options?.title?.style"
+          v-for="(item, index) in multiple_title()"
           :key="index"
           @click="multiple_title_click(+index)"
-        >
-          {{ $t(item_label(label)) }}
-        </div>
+          v-html="$t(item_label(item) ?? ((item as boolean | string | number).toString()))"
+        ></div>
       </div>
       <div
         v-else
-        :class="options?.title?.class"
-        :style="options?.title?.style"
         @click="
           () => {
             show();
           }
         "
-      >
-        {{ $t(label) }}
-      </div>
+        v-html="$t(label)"
+      ></div>
       &nbsp;
       <div
         class="rotate"
@@ -62,19 +60,20 @@
 
     <!-- results list -->
     <div ref="select" class="results bg-white shadow-sm pl-3 transition">
-      <div
-        class="py-2 cursor-pointer"
-        v-for="(item, index) in items"
-        :key="index"
-        :class="options?.item?.class"
-        :style="options?.item?.style"
-        @click="
-          () => {
-            item_click(item);
-          }
-        "
-      >
-        {{ $t(item_label(item)) }}
+      <div :class="options?.items?.class" :style="options?.items?.style">
+        <div
+          class="cursor-pointer py-2"
+          v-for="(item, index) in items"
+          :key="index"
+          :class="options?.item?.class"
+          :style="options?.item?.style"
+          @click="
+            () => {
+              item_click(item);
+            }
+          "
+          v-html="$t(item_label(item) ?? (item as boolean | string | number).toString())"
+        ></div>
       </div>
     </div>
   </div>
@@ -82,25 +81,28 @@
 <script type="text/javascript" lang="ts">
 // icons
 import CaretUp from "@common/assets/icons/CaretUp.vue";
-import { defineComponent, ref, PropType, watchEffect} from "@vue/runtime-core";
+import { defineComponent, ref, PropType, watchEffect } from "@vue/runtime-core";
 
 type SelectOptions = {
-  item?: {
-    class?: string | Record<string, boolean> | Array<string>;
-    style?: string | Record<string, boolean> | Array<string>;
-  };
   title?: {
     class?: string | Record<string, boolean> | Array<string>;
     style?: string | Record<string, boolean> | Array<string>;
   };
-}
-type Title = {
+  items?: {
+    class?: string | Record<string, boolean> | Array<string>;
+    style?: string | Record<string, boolean> | Array<string>;
+  };
+  item?: {
+    class?: string | Record<string, boolean> | Array<string>;
+    style?: string | Record<string, boolean> | Array<string>;
+  };
   placeholder?: string;
   label?: string;
-};
-type Item={
-  label:string;
+  value?: string;
 }
+
+type SimpleItem=boolean | number | string;
+
 export default defineComponent({
   emits: ["change", "update:modelValue"],
   props: {
@@ -109,12 +111,8 @@ export default defineComponent({
       required: true,
       default: null,
     },
-    title: {
-      type: Object as PropType<Title>,
-      required: true,
-    },
     items: {
-      type: Array as PropType<Array<Item | unknown>>,
+      type: Array as PropType<Array<unknown>>,
       required: true,
     },
     disabled: {
@@ -134,72 +132,82 @@ export default defineComponent({
   },
   components: { CaretUp },
   setup(props, context) {
+
     const select_height = ref(0);
     const shown = ref(false);
+    const select = ref({} as HTMLDivElement);
 
-    const show = (show?: boolean): void => {
-      let select = ref<HTMLDivElement>();
+    function show (show?: boolean): void  {
       if (show == undefined) {
         shown.value = !shown.value;
       }
-      shown.value = show as boolean;
+      else{
+        shown.value = show as boolean;
+      }
       if (shown.value) {
-        let docHeight = window.innerHeight - (select.value as HTMLDivElement).getBoundingClientRect().bottom;
+        let docHeight = window.innerHeight - select.value.getBoundingClientRect().bottom;
         select_height.value = docHeight > 250 ? 250 : docHeight;
       }
       else {
         select_height.value = 0;
       }
-      (select.value as HTMLDivElement).style.maxHeight = select_height.value + "px";
+      select.value.style.maxHeight = select_height.value + "px";
     };
 
-    const label = ref(props.title.placeholder ?? (props.items[0] as Item).label ?? props.items[0]);
+     type StringRecordType = Record<string,string>;
+     type ObjectRecordType = Record<string,unknown>;
+
+    function item_label(item:unknown):string | null{
+      if(!item){
+        return null;
+      }
+      return (item as StringRecordType)[props.options?.label as string];
+    }
+
+    const label = ref(
+      item_label(props.modelValue) ??
+      props.options?.placeholder ??
+      item_label(props.items[0]) ??
+      (props.items[0] as SimpleItem).toString()
+    );
 
     watchEffect(
       () => {
-        if (props.modelValue != null) {
+        const value=props.modelValue;
+        if (value) {
           if (!props.multiple) {
-            if (props.title.label != null) {
-              label.value = (props.modelValue as Record<string,string | number>)[props.title.label].toString();
+            // if model value becomes a value of an item
+            // then we have to search for an item with that value
+            let item=value;
+            if(props.options?.value){
+              item=props.items.find((elem)=>(elem as ObjectRecordType)[(props.options?.value as string)]==value) as typeof props.modelValue
             }
-            else {
-              label.value = props.modelValue.toString();
-            }
+            label.value=item_label(item) ?? item.toString();
           }
         }
       }
     );
 
-    const item_click = (item: Item | unknown): void => {
+    function item_click (item: unknown): void {
       if (!props.multiple) {
         show(false);
-        context.emit("update:modelValue", (item as Item).label ?? (item as Item).toString());
+        context.emit("update:modelValue",  (item as ObjectRecordType)[props.options?.value as string] ?? item);
       }
       else {
-        (props.modelValue as Array<Item | unknown>).push(item);
+        (props.modelValue as Array<unknown>).push(item);
       }
       context.emit("change", item);
     };
 
-    const item_label = (item: Item | unknown): string => {
-      let title = props.title;
-
-      if (title.label) {
-        return (item as Record<string,string | number | boolean>)[title.label].toString();
-      }
-      else {
-        return (item as string | number | boolean).toString();
-      }
-    };
-
     const multiple_title = (): Array<unknown> => (props.modelValue as Array<unknown>);
 
-    const multiple_title_click = (index: number) => {
+    function multiple_title_click (index: number) {
       let items = props.modelValue as Array<unknown>;
       items.splice(index, 1);
     };
 
     return {
+      select,
       label,
       show,
       item_click,
@@ -215,7 +223,6 @@ export default defineComponent({
 input {
   position: absolute;
   top: 102%;
-  width: 100%;
   left: 0;
 }
 .results {
@@ -226,6 +233,7 @@ input {
 }
 input {
   visibility: hidden;
+  width: 100%;
   &:invalid > label {
     color: red;
   }

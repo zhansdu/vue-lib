@@ -16,6 +16,7 @@ import { defineComponent } from "@vue/runtime-core";
 import TabsVue from "@/common/components/Tabs.vue";
 import BooksMediaVue from "./components/books&media/Books&Media.vue";
 import EResourcesVue from "./components/e_resources/EResources.vue";
+
 export default defineComponent({
   components: { TabsVue },
   setup() {
