@@ -1,6 +1,6 @@
 <template>
-  <div class="home bg-darkblue padding text-white d-flex align-items-center justify-content-center">
-    <search-component-vue></search-component-vue>
+  <div class="home d-flex justify-content-center text-white bg-darkblue padding pt-5">
+    <search-component-vue class="col-md-8 col-xl-6 pt-5 mt-4"></search-component-vue>
   </div>
 </template>
 <script lang="ts">

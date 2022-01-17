@@ -25,7 +25,7 @@
       </div>
       <div ref="line" class="line" :class="options?.line?.class" :style="options?.line?.style" />
     </div>
-    <keep-alive :include="['simple_search', 'advanced_search']">
+    <keep-alive>
       <component
         :is="tabs[active_tab].component.component"
         v-bind="tabs[active_tab].component.props"

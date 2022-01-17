@@ -20,7 +20,7 @@ export default defineComponent({
       required: false,
     },
   },
-  setup() {
+  setup(props) {
     const tabs = [
       {
         label: "search.books&media",
@@ -35,11 +35,11 @@ export default defineComponent({
         },
       },
     ];
-    const options = {
+    const options = Object.assign(props.tab_options ?? {}, {
       tab: {
         active: "text-orange",
       },
-    };
+    });
     return { tabs, options };
   },
 });

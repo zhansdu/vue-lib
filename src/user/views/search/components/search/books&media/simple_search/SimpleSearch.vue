@@ -1,7 +1,7 @@
 <template>
   <div class="d-flex">
     <select-vue
-      class="border-grey border-width w-min-120 border-end-0 border-end-radius-0 p-3 me-n1"
+      class="border-grey border-width w-min-120 border-end-radius-0 p-3 me-n1"
       :options="select_options"
       :items="select_items"
       v-model="select_type"

@@ -1,11 +1,15 @@
 <template>
-  <component :is="is_simple ? SimpleSearchVue : AdvancedSearchVue"></component>
   <div>
-    <div class="link mt-3" @click="changeSearchType">
-      <span
-        class="text-darkgrey"
-        v-html="is_simple ? $t('search.advanced_search') : $t('search.simple_search')"
-      ></span>
+    <keep-alive>
+      <component :is="is_simple ? SimpleSearchVue : AdvancedSearchVue"></component>
+    </keep-alive>
+    <div>
+      <div class="link mt-3" @click="changeSearchType">
+        <span
+          class="text-darkgrey"
+          v-html="is_simple ? $t('search.advanced_search') : $t('search.simple_search')"
+        ></span>
+      </div>
     </div>
   </div>
 </template>

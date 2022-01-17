@@ -1,7 +1,7 @@
 <template>
   <div
     tabindex="0"
-    class="position-relative d-flex align-items-center cursor-pointer rounded border"
+    class="position-relative d-flex align-items-center bg-white cursor-pointer rounded border"
     @focusout="
       () => {
         show(false);
@@ -29,7 +29,7 @@
     </div>
     <!-- label -->
     <div
-      class="d-flex justify-content-between align-items-center w-100"
+      class="d-flex text-black justify-content-between align-items-center w-100"
       :class="options?.title?.class"
       :style="options?.title?.style"
     >
@@ -72,7 +72,7 @@
     <div ref="select" class="results bg-white shadow-sm pl-3 transition">
       <div :class="options?.items?.class" :style="options?.items?.style">
         <div
-          class="cursor-pointer py-2"
+          class="cursor-pointer text-black py-2"
           v-for="(item, index) in items"
           :key="index"
           :class="options?.item?.class"
