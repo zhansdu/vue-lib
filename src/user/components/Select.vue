@@ -1,10 +1,17 @@
 <template>
   <div
     tabindex="0"
-    class="position-relative d-flex align-items-center rounded border"
+    class="position-relative d-flex align-items-center cursor-pointer rounded border"
     @focusout="
       () => {
         show(false);
+      }
+    "
+    @click="
+      () => {
+        if (!multiple) {
+          show();
+        }
       }
     "
   >
@@ -22,7 +29,7 @@
     </div>
     <!-- label -->
     <div
-      class="d-flex justify-content-between align-items-center cursor-pointer w-100"
+      class="d-flex justify-content-between align-items-center w-100"
       :class="options?.title?.class"
       :style="options?.title?.style"
     >
@@ -39,17 +46,20 @@
         v-else
         @click="
           () => {
-            show();
+            if (multiple) {
+              show();
+            }
           }
         "
         v-html="$t(label)"
       ></div>
-      &nbsp;
       <div
-        class="rotate"
+        class="rotate ms-1"
         @click="
           () => {
-            show();
+            if (multiple) {
+              show();
+            }
           }
         "
       >
@@ -164,12 +174,11 @@ export default defineComponent({
       return (item as StringRecordType)[props.options?.label as string];
     }
 
-    const label = ref(
-      item_label(props.modelValue) ??
-      props.options?.placeholder ??
-      item_label(props.items[0]) ??
-      (props.items[0] as SimpleItem).toString()
-    );
+    const label = ref();
+
+    function setLabel(){
+      label.value=item_label(props.modelValue) ?? props.options?.placeholder ?? item_label(props.items[0]) ?? (props.items[0] as SimpleItem).toString()
+    }
 
     watchEffect(
       () => {
@@ -185,12 +194,17 @@ export default defineComponent({
             label.value=item_label(item) ?? item.toString();
           }
         }
+        else{
+          setLabel();
+        }
       }
     );
 
     function item_click (item: unknown): void {
       if (!props.multiple) {
-        show(false);
+        // actually I need to close here -> show(false)
+        // but since it is located inside div that already closes ( reverses ) - the value here should also be reversed -> show( true )
+        show(true);
         context.emit("update:modelValue",  (item as ObjectRecordType)[props.options?.value as string] ?? item);
       }
       else {
@@ -205,6 +219,8 @@ export default defineComponent({
       let items = props.modelValue as Array<unknown>;
       items.splice(index, 1);
     };
+
+    setLabel();
 
     return {
       select,
