@@ -1,6 +1,11 @@
 <template>
-  <div class="home d-flex justify-content-center text-white bg-darkblue padding pt-5">
-    <search-component-vue class="col-md-8 col-xl-6 pt-5 mt-4"></search-component-vue>
+  <div class="home text-white bg-darkblue">
+    <div class="d-flex justify-content-center padding pt-5">
+      <search-component-vue class="col-md-8 col-xl-6 pt-5 mt-4"></search-component-vue>
+    </div>
+    <div class="position-absolute flex-fill bottom-0 w-100">
+      <img class="w-100" src="@/user/assets/images/Lines.png" />
+    </div>
   </div>
 </template>
 <script lang="ts">
