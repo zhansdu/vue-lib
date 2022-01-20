@@ -36,7 +36,7 @@
 
 <script lang="ts">
 import { defineComponent, ref } from "@vue/runtime-core";
-import EventsSlide from "./components/EventsSlide.vue";
+import EventsSlide from "./EventsSlide.vue";
 import RightNormal from "@/common/assets/icons/RightNormal.vue";
 export default defineComponent({
   components: { EventsSlide, RightNormal },

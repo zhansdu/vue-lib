@@ -72,7 +72,7 @@
 <script lang="ts">
 // boot
 import { defineComponent } from "@vue/runtime-core";
-import en from "../../plugins/locale/en";
+import en from "../../locale/en";
 // composables
 import { links } from "../../composables/links";
 import { dropdown_items, changeLocale } from "../../composables/locale_dropdown";
