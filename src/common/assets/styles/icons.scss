@@ -1,0 +1,18 @@
+@use "sass:math";
+// font sizes from 12 to 40
+@for $value from 10 to 20 {
+  .svg-inline--fa.fa-w-#{$value} {
+    width: math.div($value, 16) + em;
+  }
+}
+svg:not(:root).svg-inline--fa {
+  overflow: visible;
+}
+
+.svg-inline--fa {
+  display: inline-block;
+  font-size: inherit;
+  height: 1em;
+  overflow: visible;
+  vertical-align: -0.125em;
+}

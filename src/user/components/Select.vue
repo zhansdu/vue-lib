@@ -90,7 +90,7 @@
 </template>
 <script type="text/javascript" lang="ts">
 // icons
-import CaretUp from "@common/assets/icons/CaretUp.vue";
+import CaretUp from "@/common/assets/icons/CaretUp.vue";
 import { defineComponent, ref, PropType, watchEffect } from "@vue/runtime-core";
 
 type SelectOptions = {

@@ -1,0 +1,10 @@
+@import "../../../common/assets/styles/common.scss";
+@import "../../../common/assets/styles/colors.scss";
+html {
+  max-height: 100vh;
+}
+html,
+body,
+#app {
+  height: 100%;
+}

@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar navbar-expand-lg padding text-white bg-darkblue">
     <router-link :to="{ name: 'home' }">
-      <img src="@common/assets/images/logo_white.png" class="logo" />
+      <img src="@/common/assets/images/logo_white.png" class="logo" />
     </router-link>
     <button
       class="navbar-toggler"

@@ -28,19 +28,20 @@ $colors: (
   }
   .outline-#{$name} {
     color: $color !important;
-    border: $color !important;
-    &:hover {
+    border-color: $color !important;
+    background-color: v.$transparent;
+    &:hover:enabled {
       background-color: $color !important;
       color: v.$white !important;
     }
   }
   .text-hover-#{$name} {
-    &:hover {
+    &:hover:enabled {
       color: $color !important;
     }
   }
   .bg-hover-#{$name} {
-    &:hover {
+    &:hover:enabled {
       background-color: $color !important;
     }
   }

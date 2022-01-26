@@ -40,6 +40,37 @@ a {
   transform: rotate(180deg);
 }
 
+.input {
+  padding: 0.625em 1.25em;
+  border: 0.125em solid #ff9d29;
+  border-radius: 0.3125em;
+  caret-color: #ff9d29;
+  width: 100%;
+}
+.input[type=text] {
+  min-width: 12.5em;
+}
+
+.button {
+  padding: 0.625em 1.25em;
+  border: 0.0625em solid transparent;
+  line-height: 1.3125em;
+  color: #fff;
+  background-color: #ff9d29;
+  border-radius: 0.3125em;
+  width: 100%;
+}
+.button:disabled, .button[disabled] {
+  border: 1px solid #999999 !important;
+  background-color: #cccccc !important;
+  color: #666666 !important;
+}
+
+.input:disabled,
+.button:disabled {
+  border-color: initial !important;
+}
+
 /*scrollbars*/
 * {
   /*firefox only*/
@@ -60,70 +91,6 @@ a {
   background: white;
 }
 
-.font-size-12 {
-  font-size: 0.75em;
-}
-
-.font-size-14 {
-  font-size: 0.875em;
-}
-
-.font-size-16 {
-  font-size: 1em;
-}
-
-.font-size-18 {
-  font-size: 1.125em;
-}
-
-.font-size-20 {
-  font-size: 1.25em;
-}
-
-.font-size-22 {
-  font-size: 1.375em;
-}
-
-.font-size-24 {
-  font-size: 1.5em;
-}
-
-.font-size-26 {
-  font-size: 1.625em;
-}
-
-.font-size-28 {
-  font-size: 1.75em;
-}
-
-.font-size-30 {
-  font-size: 1.875em;
-}
-
-.font-size-32 {
-  font-size: 2em;
-}
-
-.font-size-34 {
-  font-size: 2.125em;
-}
-
-.font-size-36 {
-  font-size: 2.25em;
-}
-
-.font-size-38 {
-  font-size: 2.375em;
-}
-
-.font-size-40 {
-  font-size: 2.5em;
-}
-
-.font-weight-bold {
-  font-weight: 500;
-}
-
 .bg-darkgrey {
   background-color: #9c9fa7 !important;
 }
@@ -138,18 +105,19 @@ a {
 
 .outline-darkgrey {
   color: #9c9fa7 !important;
-  border: #9c9fa7 !important;
+  border-color: #9c9fa7 !important;
+  background-color: transparent;
 }
-.outline-darkgrey:hover {
+.outline-darkgrey:hover:enabled {
   background-color: #9c9fa7 !important;
   color: #fff !important;
 }
 
-.text-hover-darkgrey:hover {
+.text-hover-darkgrey:hover:enabled {
   color: #9c9fa7 !important;
 }
 
-.bg-hover-darkgrey:hover {
+.bg-hover-darkgrey:hover:enabled {
   background-color: #9c9fa7 !important;
 }
 
@@ -167,18 +135,19 @@ a {
 
 .outline-grey {
   color: #b5bac7 !important;
-  border: #b5bac7 !important;
+  border-color: #b5bac7 !important;
+  background-color: transparent;
 }
-.outline-grey:hover {
+.outline-grey:hover:enabled {
   background-color: #b5bac7 !important;
   color: #fff !important;
 }
 
-.text-hover-grey:hover {
+.text-hover-grey:hover:enabled {
   color: #b5bac7 !important;
 }
 
-.bg-hover-grey:hover {
+.bg-hover-grey:hover:enabled {
   background-color: #b5bac7 !important;
 }
 
@@ -196,18 +165,19 @@ a {
 
 .outline-lightgrey {
   color: #f4f4f4 !important;
-  border: #f4f4f4 !important;
+  border-color: #f4f4f4 !important;
+  background-color: transparent;
 }
-.outline-lightgrey:hover {
+.outline-lightgrey:hover:enabled {
   background-color: #f4f4f4 !important;
   color: #fff !important;
 }
 
-.text-hover-lightgrey:hover {
+.text-hover-lightgrey:hover:enabled {
   color: #f4f4f4 !important;
 }
 
-.bg-hover-lightgrey:hover {
+.bg-hover-lightgrey:hover:enabled {
   background-color: #f4f4f4 !important;
 }
 
@@ -225,18 +195,19 @@ a {
 
 .outline-white {
   color: #fff !important;
-  border: #fff !important;
+  border-color: #fff !important;
+  background-color: transparent;
 }
-.outline-white:hover {
+.outline-white:hover:enabled {
   background-color: #fff !important;
   color: #fff !important;
 }
 
-.text-hover-white:hover {
+.text-hover-white:hover:enabled {
   color: #fff !important;
 }
 
-.bg-hover-white:hover {
+.bg-hover-white:hover:enabled {
   background-color: #fff !important;
 }
 
@@ -254,18 +225,19 @@ a {
 
 .outline-black {
   color: #333 !important;
-  border: #333 !important;
+  border-color: #333 !important;
+  background-color: transparent;
 }
-.outline-black:hover {
+.outline-black:hover:enabled {
   background-color: #333 !important;
   color: #fff !important;
 }
 
-.text-hover-black:hover {
+.text-hover-black:hover:enabled {
   color: #333 !important;
 }
 
-.bg-hover-black:hover {
+.bg-hover-black:hover:enabled {
   background-color: #333 !important;
 }
 
@@ -283,18 +255,19 @@ a {
 
 .outline-red {
   color: #9e2629 !important;
-  border: #9e2629 !important;
+  border-color: #9e2629 !important;
+  background-color: transparent;
 }
-.outline-red:hover {
+.outline-red:hover:enabled {
   background-color: #9e2629 !important;
   color: #fff !important;
 }
 
-.text-hover-red:hover {
+.text-hover-red:hover:enabled {
   color: #9e2629 !important;
 }
 
-.bg-hover-red:hover {
+.bg-hover-red:hover:enabled {
   background-color: #9e2629 !important;
 }
 
@@ -312,18 +285,19 @@ a {
 
 .outline-lightblue {
   color: rgba(163, 200, 255, 0.25) !important;
-  border: rgba(163, 200, 255, 0.25) !important;
+  border-color: rgba(163, 200, 255, 0.25) !important;
+  background-color: transparent;
 }
-.outline-lightblue:hover {
+.outline-lightblue:hover:enabled {
   background-color: rgba(163, 200, 255, 0.25) !important;
   color: #fff !important;
 }
 
-.text-hover-lightblue:hover {
+.text-hover-lightblue:hover:enabled {
   color: rgba(163, 200, 255, 0.25) !important;
 }
 
-.bg-hover-lightblue:hover {
+.bg-hover-lightblue:hover:enabled {
   background-color: rgba(163, 200, 255, 0.25) !important;
 }
 
@@ -341,18 +315,19 @@ a {
 
 .outline-blue {
   color: #274fb6 !important;
-  border: #274fb6 !important;
+  border-color: #274fb6 !important;
+  background-color: transparent;
 }
-.outline-blue:hover {
+.outline-blue:hover:enabled {
   background-color: #274fb6 !important;
   color: #fff !important;
 }
 
-.text-hover-blue:hover {
+.text-hover-blue:hover:enabled {
   color: #274fb6 !important;
 }
 
-.bg-hover-blue:hover {
+.bg-hover-blue:hover:enabled {
   background-color: #274fb6 !important;
 }
 
@@ -370,18 +345,19 @@ a {
 
 .outline-darkblue {
   color: #082673 !important;
-  border: #082673 !important;
+  border-color: #082673 !important;
+  background-color: transparent;
 }
-.outline-darkblue:hover {
+.outline-darkblue:hover:enabled {
   background-color: #082673 !important;
   color: #fff !important;
 }
 
-.text-hover-darkblue:hover {
+.text-hover-darkblue:hover:enabled {
   color: #082673 !important;
 }
 
-.bg-hover-darkblue:hover {
+.bg-hover-darkblue:hover:enabled {
   background-color: #082673 !important;
 }
 
@@ -399,18 +375,19 @@ a {
 
 .outline-green {
   color: #00bb78 !important;
-  border: #00bb78 !important;
+  border-color: #00bb78 !important;
+  background-color: transparent;
 }
-.outline-green:hover {
+.outline-green:hover:enabled {
   background-color: #00bb78 !important;
   color: #fff !important;
 }
 
-.text-hover-green:hover {
+.text-hover-green:hover:enabled {
   color: #00bb78 !important;
 }
 
-.bg-hover-green:hover {
+.bg-hover-green:hover:enabled {
   background-color: #00bb78 !important;
 }
 
@@ -428,18 +405,19 @@ a {
 
 .outline-orange {
   color: #ff9d29 !important;
-  border: #ff9d29 !important;
+  border-color: #ff9d29 !important;
+  background-color: transparent;
 }
-.outline-orange:hover {
+.outline-orange:hover:enabled {
   background-color: #ff9d29 !important;
   color: #fff !important;
 }
 
-.text-hover-orange:hover {
+.text-hover-orange:hover:enabled {
   color: #ff9d29 !important;
 }
 
-.bg-hover-orange:hover {
+.bg-hover-orange:hover:enabled {
   background-color: #ff9d29 !important;
 }
 
@@ -457,18 +435,19 @@ a {
 
 .outline-transparent {
   color: transparent !important;
-  border: transparent !important;
+  border-color: transparent !important;
+  background-color: transparent;
 }
-.outline-transparent:hover {
+.outline-transparent:hover:enabled {
   background-color: transparent !important;
   color: #fff !important;
 }
 
-.text-hover-transparent:hover {
+.text-hover-transparent:hover:enabled {
   color: transparent !important;
 }
 
-.bg-hover-transparent:hover {
+.bg-hover-transparent:hover:enabled {
   background-color: transparent !important;
 }
 
@@ -486,19 +465,30 @@ a {
 
 .outline-inherit {
   color: inherit !important;
-  border: inherit !important;
+  border-color: inherit !important;
+  background-color: transparent;
 }
-.outline-inherit:hover {
+.outline-inherit:hover:enabled {
   background-color: inherit !important;
   color: #fff !important;
 }
 
-.text-hover-inherit:hover {
+.text-hover-inherit:hover:enabled {
   color: inherit !important;
 }
 
-.bg-hover-inherit:hover {
+.bg-hover-inherit:hover:enabled {
   background-color: inherit !important;
 }
 
-/*# sourceMappingURL=common.css.map */
+html {
+  max-height: 100vh;
+}
+
+html,
+body,
+#app {
+  height: 100%;
+}
+
+/*# sourceMappingURL=auth.css.map */

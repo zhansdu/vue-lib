@@ -20,3 +20,7 @@ To install the project follow next steps:
 
 To test local server running :
     yarn serve
+
+To compile scss : 
+    run scss scripts described in package.json
+    or press ctrl+shift+B (in vscode) and run scss scripts

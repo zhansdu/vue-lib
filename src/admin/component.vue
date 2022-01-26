@@ -1,7 +1,8 @@
 <template>
-  <router-view></router-view>
+  <div>Hello kitty it's admin home page</div>
 </template>
 <script lang="ts">
 import { defineComponent } from "vue";
+
 export default defineComponent({});
 </script>

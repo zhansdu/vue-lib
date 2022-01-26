@@ -3,8 +3,11 @@
     <div class="padding py-5">
       <div class="d-flex justify-content-between">
         <section tag="logo">
-          <img src="@common/assets/images/logo_white.png" class="logo" />
-          <div class="mt-5 text-darkgrey">HAHA</div>
+          <img src="@/common/assets/images/logo_white.png" class="logo" />
+          <div class="mt-5 text-darkgrey">
+            <span v-html="$t('footer.sdu')"></span>
+            <span class="d-block font-weight-bold" v-html="$t('footer.city')"></span>
+          </div>
         </section>
         <section tag="links">
           <div class="mb-2 link" v-for="(link, index) in links" :key="index">
@@ -79,10 +82,10 @@ import { dropdown_items, changeLocale } from "../../composables/locale_dropdown"
 // components
 import DropdownVue from "@/common/components/Dropdown.vue";
 // icons
-import Instagram from "@user/assets/icons/Instagram.vue";
-import Facebook from "@user/assets/icons/Facebook.vue";
-import Telegram from "@user/assets/icons/Telegram.vue";
-import Youtube from "@user/assets/icons/Youtube.vue";
+import Instagram from "@/user/assets/icons/Instagram.vue";
+import Facebook from "@/user/assets/icons/Facebook.vue";
+import Telegram from "@/user/assets/icons/Telegram.vue";
+import Youtube from "@/user/assets/icons/Youtube.vue";
 
 export default defineComponent({
   components: { DropdownVue },

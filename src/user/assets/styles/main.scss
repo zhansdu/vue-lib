@@ -1,0 +1,16 @@
+@use "../../../common/assets/styles/color_variables.scss" as v;
+@import "../../../common/assets/styles/common.scss";
+@import "../../../common/assets/styles/fonts.scss";
+@import "../../../common/assets/styles/colors.scss";
+@import "../../../common/assets/styles/icons.scss";
+
+* {
+  &:focus {
+    outline: none !important;
+  }
+}
+
+.padding {
+  padding-right: 11vw;
+  padding-left: 11vw;
+}

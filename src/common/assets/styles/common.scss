@@ -43,6 +43,38 @@ a {
   transform: rotate(180deg);
 }
 
+.input {
+  padding: 0.625em 1.25em;
+  border: 0.125em solid v.$orange;
+  border-radius: 0.3125em;
+  caret-color: v.$orange;
+  &[type="text"] {
+    min-width: 12.5em;
+  }
+  width: 100%;
+}
+
+.button {
+  padding: 0.625em 1.25em;
+  border: 0.0625em solid v.$transparent;
+  line-height: 1.3125em;
+  color: v.$white;
+  background-color: v.$orange;
+  border-radius: 0.3125em;
+  &:disabled,
+  &[disabled] {
+    border: 1px solid #999999 !important;
+    background-color: #cccccc !important;
+    color: #666666 !important;
+  }
+  width: 100%;
+}
+
+.input:disabled,
+.button:disabled {
+  border-color: initial !important;
+}
+
 /*scrollbars*/
 
 * {
