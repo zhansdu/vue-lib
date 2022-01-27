@@ -1,8 +1,8 @@
 <template>
-  <div>Hello kitty it's admin home page</div>
+  <div></div>
 </template>
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent } from "@vue/runtime-core";
 
 export default defineComponent({});
 </script>

@@ -25,7 +25,7 @@ a {
   cursor: pointer;
 }
 .link :hover {
-  color: #ff9d29 !important;
+  color: var(--orange) !important;
 }
 
 .logo {
@@ -42,26 +42,52 @@ a {
 
 .input {
   padding: 0.625em 1.25em;
-  border: 0.125em solid #ff9d29;
+  border: 0.125em solid var(--orange);
   border-radius: 0.3125em;
-  caret-color: #ff9d29;
+  caret-color: var(--orange);
+  width: 100%;
 }
-.input[type=text] {
+.input[type="text"] {
   min-width: 12.5em;
 }
 
 .button {
   padding: 0.625em 1.25em;
-  border: 0.0625em solid transparent;
+  border: 0.0625em solid var(--transparent);
   line-height: 1.3125em;
-  color: #fff;
-  background-color: #ff9d29;
+  color: var(--white);
+  background-color: var(--orange);
   border-radius: 0.3125em;
+  width: 100%;
 }
-.button:disabled, .button[disabled] {
+.button:disabled,
+.button[disabled] {
   border: 1px solid #999999 !important;
   background-color: #cccccc !important;
   color: #666666 !important;
+}
+
+.input:disabled,
+.button:disabled {
+  border-color: initial !important;
+}
+
+.table table {
+  border-collapse: separate;
+  width: 100%;
+  border-spacing: 0px;
+}
+.table table > td,
+.table table > th {
+  border: 0.0625em solid #e8e8e8;
+  padding: 1em 1.25em;
+}
+.table table > th {
+  text-align: left;
+  font-weight: 500;
+}
+.table table > tbody tr:hover {
+  box-shadow: 0 0 0.4375em rgba(8, 38, 115, 0.2);
 }
 
 /*scrollbars*/
@@ -149,393 +175,393 @@ a {
 }
 
 .bg-darkgrey {
-  background-color: #9c9fa7 !important;
+  background-color: var(--darkgrey) !important;
 }
 
 .text-darkgrey {
-  color: #9c9fa7 !important;
+  color: var(--darkgrey) !important;
 }
 
 .border-darkgrey {
-  border-color: #9c9fa7 !important;
+  border-color: var(--darkgrey) !important;
 }
 
 .outline-darkgrey {
-  color: #9c9fa7 !important;
-  border-color: #9c9fa7 !important;
-  background-color: transparent;
+  color: var(--darkgrey) !important;
+  border-color: var(--darkgrey) !important;
+  background-color: var(--transparent);
 }
 .outline-darkgrey:hover:enabled {
-  background-color: #9c9fa7 !important;
-  color: #fff !important;
+  background-color: var(--darkgrey) !important;
+  color: var(--white) !important;
 }
 
 .text-hover-darkgrey:hover:enabled {
-  color: #9c9fa7 !important;
+  color: var(--darkgrey) !important;
 }
 
 .bg-hover-darkgrey:hover:enabled {
-  background-color: #9c9fa7 !important;
+  background-color: var(--darkgrey) !important;
 }
 
 .bg-grey {
-  background-color: #b5bac7 !important;
+  background-color: var(--grey) !important;
 }
 
 .text-grey {
-  color: #b5bac7 !important;
+  color: var(--grey) !important;
 }
 
 .border-grey {
-  border-color: #b5bac7 !important;
+  border-color: var(--grey) !important;
 }
 
 .outline-grey {
-  color: #b5bac7 !important;
-  border-color: #b5bac7 !important;
-  background-color: transparent;
+  color: var(--grey) !important;
+  border-color: var(--grey) !important;
+  background-color: var(--transparent);
 }
 .outline-grey:hover:enabled {
-  background-color: #b5bac7 !important;
-  color: #fff !important;
+  background-color: var(--grey) !important;
+  color: var(--white) !important;
 }
 
 .text-hover-grey:hover:enabled {
-  color: #b5bac7 !important;
+  color: var(--grey) !important;
 }
 
 .bg-hover-grey:hover:enabled {
-  background-color: #b5bac7 !important;
+  background-color: var(--grey) !important;
 }
 
 .bg-lightgrey {
-  background-color: #f4f4f4 !important;
+  background-color: var(--lightgrey) !important;
 }
 
 .text-lightgrey {
-  color: #f4f4f4 !important;
+  color: var(--lightgrey) !important;
 }
 
 .border-lightgrey {
-  border-color: #f4f4f4 !important;
+  border-color: var(--lightgrey) !important;
 }
 
 .outline-lightgrey {
-  color: #f4f4f4 !important;
-  border-color: #f4f4f4 !important;
-  background-color: transparent;
+  color: var(--lightgrey) !important;
+  border-color: var(--lightgrey) !important;
+  background-color: var(--transparent);
 }
 .outline-lightgrey:hover:enabled {
-  background-color: #f4f4f4 !important;
-  color: #fff !important;
+  background-color: var(--lightgrey) !important;
+  color: var(--white) !important;
 }
 
 .text-hover-lightgrey:hover:enabled {
-  color: #f4f4f4 !important;
+  color: var(--lightgrey) !important;
 }
 
 .bg-hover-lightgrey:hover:enabled {
-  background-color: #f4f4f4 !important;
+  background-color: var(--lightgrey) !important;
 }
 
 .bg-white {
-  background-color: #fff !important;
+  background-color: var(--white) !important;
 }
 
 .text-white {
-  color: #fff !important;
+  color: var(--white) !important;
 }
 
 .border-white {
-  border-color: #fff !important;
+  border-color: var(--white) !important;
 }
 
 .outline-white {
-  color: #fff !important;
-  border-color: #fff !important;
-  background-color: transparent;
+  color: var(--white) !important;
+  border-color: var(--white) !important;
+  background-color: var(--transparent);
 }
 .outline-white:hover:enabled {
-  background-color: #fff !important;
-  color: #fff !important;
+  background-color: var(--white) !important;
+  color: var(--white) !important;
 }
 
 .text-hover-white:hover:enabled {
-  color: #fff !important;
+  color: var(--white) !important;
 }
 
 .bg-hover-white:hover:enabled {
-  background-color: #fff !important;
+  background-color: var(--white) !important;
 }
 
 .bg-black {
-  background-color: #333 !important;
+  background-color: var(--black) !important;
 }
 
 .text-black {
-  color: #333 !important;
+  color: var(--black) !important;
 }
 
 .border-black {
-  border-color: #333 !important;
+  border-color: var(--black) !important;
 }
 
 .outline-black {
-  color: #333 !important;
-  border-color: #333 !important;
-  background-color: transparent;
+  color: var(--black) !important;
+  border-color: var(--black) !important;
+  background-color: var(--transparent);
 }
 .outline-black:hover:enabled {
-  background-color: #333 !important;
-  color: #fff !important;
+  background-color: var(--black) !important;
+  color: var(--white) !important;
 }
 
 .text-hover-black:hover:enabled {
-  color: #333 !important;
+  color: var(--black) !important;
 }
 
 .bg-hover-black:hover:enabled {
-  background-color: #333 !important;
+  background-color: var(--black) !important;
 }
 
 .bg-red {
-  background-color: #9e2629 !important;
+  background-color: var(--red) !important;
 }
 
 .text-red {
-  color: #9e2629 !important;
+  color: var(--red) !important;
 }
 
 .border-red {
-  border-color: #9e2629 !important;
+  border-color: var(--red) !important;
 }
 
 .outline-red {
-  color: #9e2629 !important;
-  border-color: #9e2629 !important;
-  background-color: transparent;
+  color: var(--red) !important;
+  border-color: var(--red) !important;
+  background-color: var(--transparent);
 }
 .outline-red:hover:enabled {
-  background-color: #9e2629 !important;
-  color: #fff !important;
+  background-color: var(--red) !important;
+  color: var(--white) !important;
 }
 
 .text-hover-red:hover:enabled {
-  color: #9e2629 !important;
+  color: var(--red) !important;
 }
 
 .bg-hover-red:hover:enabled {
-  background-color: #9e2629 !important;
+  background-color: var(--red) !important;
 }
 
 .bg-lightblue {
-  background-color: rgba(163, 200, 255, 0.25) !important;
+  background-color: var(--lightblue) !important;
 }
 
 .text-lightblue {
-  color: rgba(163, 200, 255, 0.25) !important;
+  color: var(--lightblue) !important;
 }
 
 .border-lightblue {
-  border-color: rgba(163, 200, 255, 0.25) !important;
+  border-color: var(--lightblue) !important;
 }
 
 .outline-lightblue {
-  color: rgba(163, 200, 255, 0.25) !important;
-  border-color: rgba(163, 200, 255, 0.25) !important;
-  background-color: transparent;
+  color: var(--lightblue) !important;
+  border-color: var(--lightblue) !important;
+  background-color: var(--transparent);
 }
 .outline-lightblue:hover:enabled {
-  background-color: rgba(163, 200, 255, 0.25) !important;
-  color: #fff !important;
+  background-color: var(--lightblue) !important;
+  color: var(--white) !important;
 }
 
 .text-hover-lightblue:hover:enabled {
-  color: rgba(163, 200, 255, 0.25) !important;
+  color: var(--lightblue) !important;
 }
 
 .bg-hover-lightblue:hover:enabled {
-  background-color: rgba(163, 200, 255, 0.25) !important;
+  background-color: var(--lightblue) !important;
 }
 
 .bg-blue {
-  background-color: #274fb6 !important;
+  background-color: var(--blue) !important;
 }
 
 .text-blue {
-  color: #274fb6 !important;
+  color: var(--blue) !important;
 }
 
 .border-blue {
-  border-color: #274fb6 !important;
+  border-color: var(--blue) !important;
 }
 
 .outline-blue {
-  color: #274fb6 !important;
-  border-color: #274fb6 !important;
-  background-color: transparent;
+  color: var(--blue) !important;
+  border-color: var(--blue) !important;
+  background-color: var(--transparent);
 }
 .outline-blue:hover:enabled {
-  background-color: #274fb6 !important;
-  color: #fff !important;
+  background-color: var(--blue) !important;
+  color: var(--white) !important;
 }
 
 .text-hover-blue:hover:enabled {
-  color: #274fb6 !important;
+  color: var(--blue) !important;
 }
 
 .bg-hover-blue:hover:enabled {
-  background-color: #274fb6 !important;
+  background-color: var(--blue) !important;
 }
 
 .bg-darkblue {
-  background-color: #082673 !important;
+  background-color: var(--darkblue) !important;
 }
 
 .text-darkblue {
-  color: #082673 !important;
+  color: var(--darkblue) !important;
 }
 
 .border-darkblue {
-  border-color: #082673 !important;
+  border-color: var(--darkblue) !important;
 }
 
 .outline-darkblue {
-  color: #082673 !important;
-  border-color: #082673 !important;
-  background-color: transparent;
+  color: var(--darkblue) !important;
+  border-color: var(--darkblue) !important;
+  background-color: var(--transparent);
 }
 .outline-darkblue:hover:enabled {
-  background-color: #082673 !important;
-  color: #fff !important;
+  background-color: var(--darkblue) !important;
+  color: var(--white) !important;
 }
 
 .text-hover-darkblue:hover:enabled {
-  color: #082673 !important;
+  color: var(--darkblue) !important;
 }
 
 .bg-hover-darkblue:hover:enabled {
-  background-color: #082673 !important;
+  background-color: var(--darkblue) !important;
 }
 
 .bg-green {
-  background-color: #00bb78 !important;
+  background-color: var(--green) !important;
 }
 
 .text-green {
-  color: #00bb78 !important;
+  color: var(--green) !important;
 }
 
 .border-green {
-  border-color: #00bb78 !important;
+  border-color: var(--green) !important;
 }
 
 .outline-green {
-  color: #00bb78 !important;
-  border-color: #00bb78 !important;
-  background-color: transparent;
+  color: var(--green) !important;
+  border-color: var(--green) !important;
+  background-color: var(--transparent);
 }
 .outline-green:hover:enabled {
-  background-color: #00bb78 !important;
-  color: #fff !important;
+  background-color: var(--green) !important;
+  color: var(--white) !important;
 }
 
 .text-hover-green:hover:enabled {
-  color: #00bb78 !important;
+  color: var(--green) !important;
 }
 
 .bg-hover-green:hover:enabled {
-  background-color: #00bb78 !important;
+  background-color: var(--green) !important;
 }
 
 .bg-orange {
-  background-color: #ff9d29 !important;
+  background-color: var(--orange) !important;
 }
 
 .text-orange {
-  color: #ff9d29 !important;
+  color: var(--orange) !important;
 }
 
 .border-orange {
-  border-color: #ff9d29 !important;
+  border-color: var(--orange) !important;
 }
 
 .outline-orange {
-  color: #ff9d29 !important;
-  border-color: #ff9d29 !important;
-  background-color: transparent;
+  color: var(--orange) !important;
+  border-color: var(--orange) !important;
+  background-color: var(--transparent);
 }
 .outline-orange:hover:enabled {
-  background-color: #ff9d29 !important;
-  color: #fff !important;
+  background-color: var(--orange) !important;
+  color: var(--white) !important;
 }
 
 .text-hover-orange:hover:enabled {
-  color: #ff9d29 !important;
+  color: var(--orange) !important;
 }
 
 .bg-hover-orange:hover:enabled {
-  background-color: #ff9d29 !important;
+  background-color: var(--orange) !important;
 }
 
 .bg-transparent {
-  background-color: transparent !important;
+  background-color: var(--transparent) !important;
 }
 
 .text-transparent {
-  color: transparent !important;
+  color: var(--transparent) !important;
 }
 
 .border-transparent {
-  border-color: transparent !important;
+  border-color: var(--transparent) !important;
 }
 
 .outline-transparent {
-  color: transparent !important;
-  border-color: transparent !important;
-  background-color: transparent;
+  color: var(--transparent) !important;
+  border-color: var(--transparent) !important;
+  background-color: var(--transparent);
 }
 .outline-transparent:hover:enabled {
-  background-color: transparent !important;
-  color: #fff !important;
+  background-color: var(--transparent) !important;
+  color: var(--white) !important;
 }
 
 .text-hover-transparent:hover:enabled {
-  color: transparent !important;
+  color: var(--transparent) !important;
 }
 
 .bg-hover-transparent:hover:enabled {
-  background-color: transparent !important;
+  background-color: var(--transparent) !important;
 }
 
 .bg-inherit {
-  background-color: inherit !important;
+  background-color: var(--inherit) !important;
 }
 
 .text-inherit {
-  color: inherit !important;
+  color: var(--inherit) !important;
 }
 
 .border-inherit {
-  border-color: inherit !important;
+  border-color: var(--inherit) !important;
 }
 
 .outline-inherit {
-  color: inherit !important;
-  border-color: inherit !important;
-  background-color: transparent;
+  color: var(--inherit) !important;
+  border-color: var(--inherit) !important;
+  background-color: var(--transparent);
 }
 .outline-inherit:hover:enabled {
-  background-color: inherit !important;
-  color: #fff !important;
+  background-color: var(--inherit) !important;
+  color: var(--white) !important;
 }
 
 .text-hover-inherit:hover:enabled {
-  color: inherit !important;
+  color: var(--inherit) !important;
 }
 
 .bg-hover-inherit:hover:enabled {
-  background-color: inherit !important;
+  background-color: var(--inherit) !important;
 }
 
 .svg-inline--fa.fa-w-10 {

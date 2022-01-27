@@ -1,4 +1,5 @@
 @use "./color_variables.scss" as v;
+@use "sass:math";
 $logo_width: 7.5em;
 
 body {
@@ -73,6 +74,27 @@ a {
 .input:disabled,
 .button:disabled {
   border-color: initial !important;
+}
+
+.table table {
+  border-collapse: separate;
+  width: 100%;
+  border-spacing: 0px;
+
+  & > td,
+  & > th {
+    border: 0.0625em solid #e8e8e8;
+    padding: 1em 1.25em;
+  }
+
+  & > th {
+    text-align: left;
+    font-weight: 500;
+  }
+
+  & > tbody tr:hover {
+    box-shadow: 0 0 0.4375em rgba(8, 38, 115, 0.2);
+  }
 }
 
 /*scrollbars*/
