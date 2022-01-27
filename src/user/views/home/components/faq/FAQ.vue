@@ -9,7 +9,7 @@
           <span class="font-weight-bold" v-html="$t('faq.question')" />
         </div>
         <div class="mt-1">
-          <span class="font-size-14" v-html="$t('faq_answer')" />
+          <span class="font-size-14" v-html="$t('faq.answer')" />
         </div>
 
         <div class="mt-4">

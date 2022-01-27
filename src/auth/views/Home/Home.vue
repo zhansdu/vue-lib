@@ -1,7 +1,9 @@
 <template>
   <div class="d-flex flex-column align-items-center justify-content-center h-100">
-    <div class="mb-4">
-      <img class="img_width" src="@/common/assets/images/logo_blue.png" />
+    <div class="mb-5">
+      <a :href="prod_link">
+        <img class="img_width" src="@/common/assets/images/logo_blue.png" />
+      </a>
     </div>
     <form
       @submit.prevent="login"
@@ -30,8 +32,11 @@ export default defineComponent({
     function login(): void {
       alert("login");
     }
+
+    const prod_link = process.env.VUE_APP_BASE_URL_PROD;
     return {
       login,
+      prod_link,
     };
   },
 });

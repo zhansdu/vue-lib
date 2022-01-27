@@ -41,11 +41,6 @@ export const links: Array<link> = [
           target: "_blank",
         },
         {
-          label: "askus",
-          link: "https://sdu-kz.libguides.com/ask-a-librarian_page/askus",
-          target: "_blank",
-        },
-        {
           label: "ill",
           link: "https://sdu-kz.libguides.com/libservices/ill",
           target: "_blank",

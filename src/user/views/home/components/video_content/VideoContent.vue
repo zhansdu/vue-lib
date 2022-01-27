@@ -38,7 +38,7 @@
             href="https://www.youtube.com/channel/UCmuuTTBkfi8aUgUc56VY8kA"
             target="_blank"
           >
-            <span v-html="$t('see_all_videos')" />
+            <span v-html="$t('video_content.see_all_videos')" />
             <span class="ms-2"><right-normal-vue /></span>
           </a>
         </div>
