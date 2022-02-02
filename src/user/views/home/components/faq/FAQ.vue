@@ -3,10 +3,10 @@
     <div class="d-flex flex-wrap justify-content-between">
       <section class="col-12 col-md-4" tag="search">
         <div class="text-darkblue">
-          <span class="font-size-32 font-weight-bold" v-html="$t('faq.title').toUpperCase()" />
+          <span class="font-size-32 fw-bold" v-html="$t('faq.title').toUpperCase()" />
         </div>
         <div class="mt-5">
-          <span class="font-weight-bold" v-html="$t('faq.question')" />
+          <span class="fw-bold" v-html="$t('faq.question')" />
         </div>
         <div class="mt-1">
           <span class="font-size-14" v-html="$t('faq.answer')" />

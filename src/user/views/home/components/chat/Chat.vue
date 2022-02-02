@@ -16,7 +16,7 @@
     </div>
     <div class="h-100 d-flex flex-column w-0" :class="{ 'w-100': chat_shown }">
       <div class="d-flex justify-content-between p-4">
-        <div class="font-weight-bold" v-html="$t('chat.action')" />
+        <div class="fw-bold" v-html="$t('chat.action')" />
         <div @click="closeChat()" class="cursor-pointer"><X /></div>
       </div>
       <div
@@ -102,14 +102,13 @@ export default defineComponent({
 });
 </script>
 <style lang="scss" scoped>
-@use "@/common/assets/styles/color_variables.scss" as v;
 $transition: 400ms;
 $icon_width: 3.75em;
 
 // box shadow color used before
 // rgba(141, 155, 164, 0.6)
 
-$box_shadow: 0 0.25em 1.875em v.$darkblue;
+$box_shadow: 0 0.25em 1.875em var(--darkblue);
 
 .chat_parent {
   position: fixed;
@@ -129,8 +128,8 @@ $box_shadow: 0 0.25em 1.875em v.$darkblue;
     max-width: 18em;
     & .chat_icon {
       transform: rotate(-360deg);
-      color: v.$white;
-      background-color: v.$darkblue;
+      color: var(--white);
+      background-color: var(--darkblue);
     }
   }
 }
@@ -144,7 +143,7 @@ $box_shadow: 0 0.25em 1.875em v.$darkblue;
 .chat {
   height: 26em;
   width: 25em;
-  background-color: v.$white;
+  background-color: var(--white);
   border-radius: 0;
   border-top-right-radius: 1.875em;
   border-top-left-radius: 1.875em;

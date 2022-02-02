@@ -1,8 +1,8 @@
 import NotFound from "@/common/components/NotFound.vue";
-import Home from "@/auth/views/Home/Home.vue";
+import Home from "@/auth/views/home/Home.vue";
 export const routes = [
   {
-    path: "/",
+    path: "",
     name: "home",
     component: Home,
   },

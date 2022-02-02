@@ -47,7 +47,7 @@
               class="d-flex align-items-center justify-content-between text-black cursor-pointer"
               v-if="event.type == 'announcement'"
             >
-              <div class="font-weight-bold font-size-24" v-html="$t('news[' + index + '].title')" />
+              <div class="fw-bold font-size-24" v-html="$t('news[' + index + '].title')" />
               <div
                 class="rounded-circle bg-white fixed-size d-flex align-items-center justify-content-center"
               >
@@ -60,7 +60,7 @@
               class="d-flex align-items-center justify-content-between text-black cursor-pointer"
               v-else
             >
-              <div class="font-weight-bold font-size-24" v-html="$t('news[' + index + '].title')" />
+              <div class="fw-bold font-size-24" v-html="$t('news[' + index + '].title')" />
               <div
                 class="rounded-circle bg-white fixed-size d-flex align-items-center justify-content-center"
               >
@@ -183,7 +183,7 @@ export default defineComponent({
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: white;
+  background-color: var(--white);
   box-shadow: 0 0.125em 0.625em rgba(141, 155, 164, 0.32);
 }
 .right_button {

@@ -1,8 +1,8 @@
-@use "sass:math";
+@use "functions.scss" as f;
 // font sizes from 12 to 40
 @for $value from 10 to 20 {
   .svg-inline--fa.fa-w-#{$value} {
-    width: math.div($value, 16) + em;
+    width: f.size($value);
   }
 }
 svg:not(:root).svg-inline--fa {

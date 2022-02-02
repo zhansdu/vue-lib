@@ -8,7 +8,8 @@
     "lint": "vue-cli-service lint",
     "sass:compile@admin": "sass src/admin/assets/styles/main.scss:public/styles/sass/admin.css",
     "sass:compile@user": "sass src/user/assets/styles/main.scss:public/styles/sass/user.css",
-    "sass:compile@auth": "sass src/auth/assets/styles/main.scss:public/styles/sass/auth.css"
+    "sass:compile@auth": "sass src/auth/assets/styles/main.scss:public/styles/sass/auth.css",
+    "sass:compile@all": "sass src/admin/assets/styles/main.scss:public/styles/sass/admin.css src/user/assets/styles/main.scss:public/styles/sass/user.css src/auth/assets/styles/main.scss:public/styles/sass/auth.css"
   },
   "dependencies": {
     "vue": "^3.0.0",

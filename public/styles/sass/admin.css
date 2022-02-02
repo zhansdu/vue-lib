@@ -106,70 +106,6 @@ a {
   background: white;
 }
 
-.font-size-12 {
-  font-size: 0.75em;
-}
-
-.font-size-14 {
-  font-size: 0.875em;
-}
-
-.font-size-16 {
-  font-size: 1em;
-}
-
-.font-size-18 {
-  font-size: 1.125em;
-}
-
-.font-size-20 {
-  font-size: 1.25em;
-}
-
-.font-size-22 {
-  font-size: 1.375em;
-}
-
-.font-size-24 {
-  font-size: 1.5em;
-}
-
-.font-size-26 {
-  font-size: 1.625em;
-}
-
-.font-size-28 {
-  font-size: 1.75em;
-}
-
-.font-size-30 {
-  font-size: 1.875em;
-}
-
-.font-size-32 {
-  font-size: 2em;
-}
-
-.font-size-34 {
-  font-size: 2.125em;
-}
-
-.font-size-36 {
-  font-size: 2.25em;
-}
-
-.font-size-38 {
-  font-size: 2.375em;
-}
-
-.font-size-40 {
-  font-size: 2.5em;
-}
-
-.font-weight-bold {
-  font-weight: 500;
-}
-
 .bg-darkgrey {
   background-color: var(--darkgrey) !important;
 }
@@ -560,6 +496,70 @@ a {
   background-color: var(--inherit) !important;
 }
 
+.font-size-12 {
+  font-size: 0.75em;
+}
+
+.font-size-14 {
+  font-size: 0.875em;
+}
+
+.font-size-16 {
+  font-size: 1em;
+}
+
+.font-size-18 {
+  font-size: 1.125em;
+}
+
+.font-size-20 {
+  font-size: 1.25em;
+}
+
+.font-size-22 {
+  font-size: 1.375em;
+}
+
+.font-size-24 {
+  font-size: 1.5em;
+}
+
+.font-size-26 {
+  font-size: 1.625em;
+}
+
+.font-size-28 {
+  font-size: 1.75em;
+}
+
+.font-size-30 {
+  font-size: 1.875em;
+}
+
+.font-size-32 {
+  font-size: 2em;
+}
+
+.font-size-34 {
+  font-size: 2.125em;
+}
+
+.font-size-36 {
+  font-size: 2.25em;
+}
+
+.font-size-38 {
+  font-size: 2.375em;
+}
+
+.font-size-40 {
+  font-size: 2.5em;
+}
+
+.font-weight-bold {
+  font-weight: 500;
+}
+
 .svg-inline--fa.fa-w-10 {
   width: 0.625em;
 }
@@ -612,13 +612,4 @@ svg:not(:root).svg-inline--fa {
   vertical-align: -0.125em;
 }
 
-*:focus {
-  outline: none !important;
-}
-
-.padding {
-  padding-right: 11vw;
-  padding-left: 11vw;
-}
-
-/*# sourceMappingURL=user.css.map */
+/*# sourceMappingURL=admin.css.map */

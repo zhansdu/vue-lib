@@ -6,7 +6,7 @@
           <img src="@/common/assets/images/logo_white.png" class="logo" />
           <div class="mt-5 text-darkgrey">
             <span v-html="$t('footer.sdu')"></span>
-            <span class="d-block font-weight-bold" v-html="$t('footer.city')"></span>
+            <span class="d-block fw-bold" v-html="$t('footer.city')"></span>
           </div>
         </section>
         <section tag="links">
@@ -113,19 +113,18 @@ export default defineComponent({
 });
 </script>
 <style scoped lang="scss">
-@use "@/common/assets/styles/color_variables.scss" as v;
 .icon_wrapper {
   width: 2.5em;
   height: 2.5em;
   border-radius: 50%;
   cursor: pointer;
-  background-color: v.$white;
+  background-color: var(--white);
   &:hover {
     transform: rotate(180deg);
-    background-color: #ff9d29 !important;
+    background-color: var(--orange) !important;
     & > .icon {
       transform: rotate(180deg);
-      color: white !important;
+      color: var(--white) !important;
       font-size: 1.6em;
     }
   }

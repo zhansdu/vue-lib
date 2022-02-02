@@ -94,11 +94,11 @@ export default defineComponent({
   width: 0.75em;
   height: 0.75em;
   position: absolute;
-  background-color: #ff9d29;
+  background-color: var(--orange);
   border-radius: 0.125em;
 }
 
 .disabled::after {
-  background-color: #b5bac7;
+  background-color: var(--grey);
 }
 </style>

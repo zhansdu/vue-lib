@@ -6,11 +6,12 @@
 import { defineComponent, onMounted } from "@vue/runtime-core";
 import AppVue from "@/user/views/_main_layout/Main.vue";
 import store from "./store/store";
+import set_theme from "@/common/composables/set_theme";
 export default defineComponent({
   components: { AppVue },
   setup() {
     onMounted(() => {
-      store.mutations.changeTheme("default");
+      set_theme("default", store.states);
     });
     return {};
   },

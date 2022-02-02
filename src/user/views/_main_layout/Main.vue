@@ -12,7 +12,7 @@ import HeaderVue from "./components/header/Header.vue";
 import FooterVue from "./components/footer/Footer.vue";
 
 import local_locale from "./locale/locale";
-import { addLocale } from "@/user/plugins/locale/locale";
+import { addLocale } from "@/user/locale/locale";
 
 export default defineComponent({
   components: { HeaderVue, FooterVue },

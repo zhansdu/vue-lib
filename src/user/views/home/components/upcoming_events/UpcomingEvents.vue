@@ -3,10 +3,7 @@
     <section tag="texts">
       <div class="d-flex justify-content-between align-items-center">
         <div class="text-darkblue">
-          <span
-            class="font-size-32 font-weight-bold"
-            v-html="$t('upcoming_events').toUpperCase()"
-          />
+          <span class="font-size-32 fw-bold" v-html="$t('upcoming_events').toUpperCase()" />
         </div>
         <a class="text-darkblue" :href="$t('libguide.digest.link')">
           <span v-html="$t('libguide.digest.title')" />

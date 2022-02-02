@@ -47,7 +47,7 @@ export default defineComponent({
   margin-top: -1em;
 }
 .go_back {
-  border: 1px solid grey;
+  border: 1px solid var(--grey);
   border-radius: 5px;
   font-size: 1.5em;
 }

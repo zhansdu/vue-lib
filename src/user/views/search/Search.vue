@@ -1,5 +1,5 @@
 <template>
-  <search-component-vue></search-component-vue>
+  <search-component-vue class="padding mt-5"></search-component-vue>
 </template>
 <script lang="ts">
 import { defineComponent } from "@vue/runtime-core";

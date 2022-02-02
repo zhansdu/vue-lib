@@ -1,13 +1,9 @@
-@use "sass:math";
+@use "functions.scss" as f;
 // font sizes from 12 to 40
 @for $value from 12 to 42 {
   @if $value%2==0 {
     .font-size-#{$value} {
-      font-size: math.div($value, 16) + em;
+      font-size: f.size($value);
     }
   }
-}
-
-.font-weight-bold {
-  font-weight: 500;
 }

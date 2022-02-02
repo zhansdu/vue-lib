@@ -1,9 +1,17 @@
-import { createApp } from "@vue/runtime-dom";
-import { router } from "./plugins/router";
+import { createApp } from "vue";
+import { router } from "./router/router";
+import { i18n } from "./locale/locale";
 import App from "./App.vue";
+import globals from "./globals";
 
-const app = createApp(App);
+export const app = createApp(App);
 
 app.use(router);
+app.use(i18n);
+
+// provide globals
+for (const [key, value] of Object.entries(globals)) {
+  app.provide(key, value);
+}
 
 app.mount("#app");

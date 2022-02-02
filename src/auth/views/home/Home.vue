@@ -13,10 +13,10 @@
         <span v-html="$t('auth.description')"></span>
       </div>
       <div class="col-10 mt-4">
-        <input class="input" :placeholder="$t('auth.login')" />
+        <input class="input w-100" :placeholder="$t('auth.login')" />
       </div>
       <div class="col-10 mt-4">
-        <input type="password" class="input" :placeholder="$t('auth.password')" />
+        <input class="input w-100" :placeholder="$t('auth.password')" type="password" />
       </div>
       <div class="col-8 mt-5">
         <button class="button bg-white outline-green w-100" v-html="$t('auth.submit')"></button>

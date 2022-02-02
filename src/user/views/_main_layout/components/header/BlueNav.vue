@@ -16,7 +16,7 @@
     </button>
     <div class="collapse navbar-collapse justify-content-center py-4">
       <div class="navbar-nav text-nowrap">
-        <div class="font-weight-bold link" v-for="(link, index) in links" :key="index">
+        <div class="fw-bold link" v-for="(link, index) in links" :key="index">
           <dropdown-vue
             class="nav-link"
             :items="link.dropdown.links"

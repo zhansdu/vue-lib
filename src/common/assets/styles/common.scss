@@ -1,5 +1,5 @@
-@use "./color_variables.scss" as v;
-@use "sass:math";
+@use "./color_variables.scss" as c;
+@use "./functions.scss" as f;
 $logo_width: 7.5em;
 
 body {
@@ -28,7 +28,7 @@ a {
 .link {
   cursor: pointer;
   & :hover {
-    color: v.$orange !important;
+    color: c.$orange !important;
   }
 }
 
@@ -46,21 +46,20 @@ a {
 
 .input {
   padding: 0.625em 1.25em;
-  border: 0.125em solid v.$orange;
+  border: 0.125em solid c.$orange;
   border-radius: 0.3125em;
-  caret-color: v.$orange;
+  caret-color: c.$orange;
   &[type="text"] {
     min-width: 12.5em;
   }
-  width: 100%;
 }
 
 .button {
   padding: 0.625em 1.25em;
-  border: 0.0625em solid v.$transparent;
+  border: 0.0625em solid c.$transparent;
   line-height: 1.3125em;
-  color: v.$white;
-  background-color: v.$orange;
+  color: c.$white;
+  background-color: c.$orange;
   border-radius: 0.3125em;
   &:disabled,
   &[disabled] {
@@ -68,7 +67,6 @@ a {
     background-color: #cccccc !important;
     color: #666666 !important;
   }
-  width: 100%;
 }
 
 .input:disabled,

@@ -126,7 +126,7 @@ export default defineComponent({
 
 .line {
   height: 0.3125em;
-  background: #ff9d29;
+  background: var(--orange);
   position: absolute;
   transition: 0.5s;
   /*emaa naugad*/

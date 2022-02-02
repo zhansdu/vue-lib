@@ -3,10 +3,7 @@
     <div class="padding py-5">
       <section tag="texts">
         <div class="text-blue">
-          <span
-            class="font-size-32 font-weight-bold"
-            v-html="$t('video_content.title').toUpperCase()"
-          />
+          <span class="font-size-32 fw-bold" v-html="$t('video_content.title').toUpperCase()" />
         </div>
         <div class="my-3">
           <span v-html="$t('video_content.content')" />

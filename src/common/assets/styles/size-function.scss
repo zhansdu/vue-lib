@@ -1,4 +1,0 @@
-@use "sass:math";
-@function base($size) {
-  @return math.div($size, 16) + em;
-}

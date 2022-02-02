@@ -251,7 +251,7 @@ input {
   visibility: hidden;
   width: 100%;
   &:invalid > label {
-    color: red;
+    color: var(--red);
   }
 }
 </style>

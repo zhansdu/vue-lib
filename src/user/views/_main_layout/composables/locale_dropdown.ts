@@ -1,4 +1,4 @@
-import { i18n } from "@/user/plugins/locale/locale";
+import { i18n } from "@/user/locale/locale";
 
 export function changeLocale(): void {
   localStorage.setItem("lang", i18n.global.locale);
