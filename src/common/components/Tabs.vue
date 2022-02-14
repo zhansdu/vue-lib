@@ -39,14 +39,14 @@
 import { Component, defineComponent, onMounted, PropType, ref } from "@vue/runtime-core";
 import { KeepAlive } from "vue";
 
-type Tab = {
+export type Tab = {
   label: string;
   component: {
     component: Component;
     props?: Record<string, unknown>;
   };
 };
-type TabOptions = {
+export type TabOptions = {
   tab?: {
     active?: string | Record<string, boolean> | Array<string>;
     inactive?: string | Record<string, boolean> | Array<string>;

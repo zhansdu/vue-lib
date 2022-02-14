@@ -16,7 +16,7 @@
 <script lang="ts">
 import { defineComponent, PropType, ref, watch } from "@vue/runtime-core";
 
-type CheckboxOptions = {
+export type CheckboxOptions = {
   class?: string | Record<string, boolean> | Array<string>;
   style?: string | Record<string, boolean> | Array<string>;
 };

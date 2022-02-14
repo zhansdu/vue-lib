@@ -20,7 +20,7 @@
 </template>
 <script lang="ts">
 import { defineComponent } from "@vue/runtime-core";
-import DropdownVue from "@/common/components/Dropdown.vue";
+import DropdownVue, { DropdownOptions } from "@/common/components/Dropdown.vue";
 import { dropdown_items, changeLocale } from "../../composables/locale_dropdown";
 
 export default defineComponent({
@@ -28,7 +28,7 @@ export default defineComponent({
     DropdownVue,
   },
   setup() {
-    const dropdown_options = {
+    const dropdown_options: DropdownOptions = {
       title: {
         class: "cursor-pointer text-decoration-none text-black dropdown-toggle",
       },

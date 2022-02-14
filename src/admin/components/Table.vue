@@ -93,7 +93,7 @@
 import { Component, defineComponent, PropType } from "@vue/runtime-core";
 type ClassStyleType = string | Record<string, boolean> | Array<string>;
 
-type Link = {
+export type Link = {
   header: {
     label: string;
     display_func?: CallableFunction;
@@ -120,7 +120,7 @@ type Link = {
   };
 };
 
-type Options = {
+export type Options = {
   row_num?: boolean;
   header?: {
     sticky?: boolean;

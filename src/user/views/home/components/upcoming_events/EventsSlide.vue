@@ -95,7 +95,7 @@ import { defineComponent, onBeforeMount, onBeforeUnmount, PropType, ref } from "
 // icons
 import RightLittle from "@/common/assets/icons/RightLittle.vue";
 
-type Event = {
+export type Event = {
   date: Date | string;
   type: string;
   link: string;

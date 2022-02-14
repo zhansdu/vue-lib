@@ -33,12 +33,12 @@
 
 <script lang="ts">
 import { defineComponent, ref } from "@vue/runtime-core";
-import EventsSlide from "./EventsSlide.vue";
+import EventsSlide, { Event } from "./EventsSlide.vue";
 import RightNormal from "@/common/assets/icons/RightNormal.vue";
 export default defineComponent({
   components: { EventsSlide, RightNormal },
   setup() {
-    const events = ref([
+    const events = ref<Array<Event>>([
       {
         date: new Date(),
         type: "event",

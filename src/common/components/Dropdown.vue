@@ -31,7 +31,7 @@
 </template>
 <script lang="ts">
 import { PropType, defineComponent, computed } from "@vue/runtime-core";
-type DropdownOptions = {
+export type DropdownOptions = {
   item?: {
     class?: string | Record<string, boolean> | Array<string>;
     style?: string | Record<string, boolean> | Array<string>;
@@ -42,7 +42,7 @@ type DropdownOptions = {
   };
   dropup?: boolean;
 };
-type Item = {
+export type Item = {
   label: string;
   value?: string;
   link?: string;
@@ -51,7 +51,7 @@ type Item = {
   class?: string | Record<string, boolean> | Array<string>;
   style?: string | Record<string, boolean> | Array<string>;
 };
-type Title = {
+export type Title = {
   label?: string;
   uppercase?: boolean;
 };

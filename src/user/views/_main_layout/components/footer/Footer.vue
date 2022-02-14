@@ -80,7 +80,7 @@ import en from "../../locale/en";
 import { links } from "../../composables/links";
 import { dropdown_items, changeLocale } from "../../composables/locale_dropdown";
 // components
-import DropdownVue from "@/common/components/Dropdown.vue";
+import DropdownVue, { DropdownOptions } from "@/common/components/Dropdown.vue";
 // icons
 import Instagram from "@/user/assets/icons/Instagram.vue";
 import Facebook from "@/user/assets/icons/Facebook.vue";
@@ -90,7 +90,7 @@ import Youtube from "@/user/assets/icons/Youtube.vue";
 export default defineComponent({
   components: { DropdownVue },
   setup() {
-    const dropdown_options = {
+    const dropdown_options: DropdownOptions = {
       title: {
         class: "cursor-pointer text-decoration-none text-darkgrey dropdown-toggle",
       },

@@ -1,19 +1,18 @@
 <template>
-  <table-vue :header_links="header_links" :data="data"></table-vue>
+  <table-vue :header_links="header_links" :data="data" :options="options"></table-vue>
 </template>
 <script lang="ts">
 import { defineComponent, ref } from "@vue/runtime-core";
-import TableVue from "@/admin/components/Table.vue";
+import TableVue, { Options, Link } from "@/admin/components/Table.vue";
 export default defineComponent({
   components: {
     TableVue,
   },
   setup() {
-    const header_links = ref([
+    const header_links = ref<Array<Link>>([
       {
         header: {
           label: "name",
-          class: "cursor-pointer",
         },
         data: {
           label: "name",
@@ -42,9 +41,17 @@ export default defineComponent({
         id: "2",
       },
     ]);
+    const options = ref<Options>({
+      header: {
+        th: {
+          class: "cursor-pointer",
+        },
+      },
+    });
     return {
       header_links,
       data,
+      options,
     };
   },
 });

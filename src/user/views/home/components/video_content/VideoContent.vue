@@ -51,7 +51,7 @@
 import { defineComponent } from "@vue/runtime-core";
 
 // types
-type Video = {
+export type Video = {
   link_embed: string;
   link: string;
 };

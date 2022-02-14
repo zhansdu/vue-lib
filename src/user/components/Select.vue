@@ -93,7 +93,7 @@
 import CaretUp from "@/common/assets/icons/CaretUp.vue";
 import { defineComponent, ref, PropType, watchEffect } from "@vue/runtime-core";
 
-type SelectOptions = {
+export type SelectOptions = {
   title?: {
     class?: string | Record<string, boolean> | Array<string>;
     style?: string | Record<string, boolean> | Array<string>;
@@ -110,8 +110,6 @@ type SelectOptions = {
   label?: string;
   value?: string;
 }
-
-type SimpleItem=boolean | number | string;
 
 export default defineComponent({
   emits: ["change", "update:modelValue"],
@@ -177,7 +175,7 @@ export default defineComponent({
     const label = ref();
 
     function setLabel(){
-      label.value=item_label(props.modelValue) ?? props.options?.placeholder ?? item_label(props.items[0]) ?? (props.items[0] as SimpleItem).toString()
+      label.value=item_label(props.modelValue) ?? props.options?.placeholder ?? item_label(props.items[0]) ?? (props.items[0] as boolean | number | string).toString()
     }
 
     watchEffect(
