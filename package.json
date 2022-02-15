@@ -3,9 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint",
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview",
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore --fix src",
     "sass:compile@admin": "sass src/admin/assets/styles/main.scss:public/styles/sass/admin.css",
     "sass:compile@user": "sass src/user/assets/styles/main.scss:public/styles/sass/user.css",
     "sass:compile@auth": "sass src/auth/assets/styles/main.scss:public/styles/sass/auth.css",
@@ -17,31 +18,18 @@
     "vue-router": "^4.0.12"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.11.0",
-    "@typescript-eslint/parser": "^5.11.0",
-    "@vue/cli-plugin-eslint": "^4.5.15",
-    "@vue/cli-plugin-typescript": "^4.5.15",
-    "@vue/cli-service": "^4.5.15",
-    "@vue/compiler-sfc": "^3.2.31",
+    "@typescript-eslint/eslint-plugin": "^5.12.0",
+    "@typescript-eslint/parser": "^5.12.0",
+    "@vitejs/plugin-vue": "^2.2.0",
     "@vue/eslint-config-prettier": "^7.0.0",
     "@vue/eslint-config-typescript": "^10.0.0",
     "eslint": "^8.9.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-vue": "^8.4.1",
-    "lint-staged": "^12.3.4",
     "prettier": "^2.2.1",
     "sass": "^1.49.7",
-    "sass-loader": "^12.4.0",
     "typescript": "^4.1.5",
+    "vite": "^2.8.2",
     "webpack": "^5.68.0"
-  },
-  "gitHooks": {
-    "pre-commit": "lint-staged"
-  },
-  "lint-staged": {
-    "*.{js,jsx,vue,ts,tsx}": [
-      "vue-cli-service lint",
-      "git add"
-    ]
   }
 }

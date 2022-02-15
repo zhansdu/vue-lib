@@ -21,7 +21,7 @@ export default defineComponent({
     function goBack(): void {
       window.history.back();
     }
-    const prod_link = process.env.VUE_APP_BASE_URL_PROD;
+    const prod_link = import.meta.env.BASE_URL_PROD as string;
     return {
       goBack,
       prod_link,
