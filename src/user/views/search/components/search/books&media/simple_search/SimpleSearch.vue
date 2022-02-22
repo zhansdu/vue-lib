@@ -29,6 +29,7 @@ export default defineComponent({
 
     return {
       select_type,
+      // composables
       select_options,
       select_items,
     };

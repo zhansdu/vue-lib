@@ -1,4 +1,6 @@
-export const select_options = {
+import { SelectOptions } from "@/user/components/Select.vue";
+
+export const select_options: SelectOptions = {
   placeholder: "Zhan",
   label: "name",
   value: "id",
@@ -12,6 +14,7 @@ export const select_options = {
     class: "border-bottom px-3",
   },
 };
+
 export const select_items = [
   {
     name: "Zhon Zhonskiy",

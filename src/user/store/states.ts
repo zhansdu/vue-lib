@@ -1,4 +1,5 @@
-import { ref } from "vue";
-export default ref({
+import { reactive } from "vue";
+
+export default reactive({
   theme: "",
-}).value;
+});

@@ -33,7 +33,7 @@ export default defineComponent({
       alert("login");
     }
 
-    const prod_link = process.env.VUE_APP_BASE_URL_PROD;
+    const prod_link = import.meta.env.BASE_URL;
     return {
       login,
       prod_link,

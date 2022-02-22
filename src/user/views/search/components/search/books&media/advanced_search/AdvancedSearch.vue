@@ -86,7 +86,7 @@ export default defineComponent({
       searches,
       addSearch,
       resetSearch,
-      // mixins
+      // composables
       select_options,
       select_items,
       input_max_number,
