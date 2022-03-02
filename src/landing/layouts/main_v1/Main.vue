@@ -1,9 +1,11 @@
 <template>
-  <header-vue v-if="!$router.currentRoute.value.meta.no_header"></header-vue>
-  <router-view v-slot="{ Component }">
-    <component :is="Component" />
-  </router-view>
-  <footer-vue v-if="!$router.currentRoute.value.meta.no_footer"></footer-vue>
+  <div>
+    <header-vue v-if="!$router.currentRoute.value.meta.no_header"></header-vue>
+    <router-view v-slot="{ Component }">
+      <component :is="Component" />
+    </router-view>
+    <footer-vue v-if="!$router.currentRoute.value.meta.no_footer"></footer-vue>
+  </div>
 </template>
 <script lang="ts">
 import { defineComponent } from "@vue/runtime-core";
@@ -15,6 +17,7 @@ import local_locale from "./locale/locale";
 import { addLocale } from "@/user/locale/locale";
 
 export default defineComponent({
+  name: "MainVue",
   components: { HeaderVue, FooterVue },
   setup() {
     addLocale(local_locale.en, "en");

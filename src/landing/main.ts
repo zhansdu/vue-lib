@@ -1,6 +1,6 @@
 import { createApp } from "vue";
-import { router } from "./router/router";
-import { i18n } from "./locale/locale";
+import { router } from "./common/router";
+import { i18n } from "./common/locale";
 import App from "./App.vue";
 import globals from "./globals";
 

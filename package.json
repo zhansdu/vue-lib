@@ -13,6 +13,7 @@
     "sass:compile@all": "sass src/admin/assets/styles/main.scss:public/styles/sass/admin.css src/user/assets/styles/main.scss:public/styles/sass/user.css src/auth/assets/styles/main.scss:public/styles/sass/auth.css"
   },
   "dependencies": {
+    "ansi-regex": "^6.0.1",
     "vue": "^3.2.31",
     "vue-i18n": "^9.1.9",
     "vue-router": "^4.0.12"
@@ -24,9 +25,11 @@
     "@vue/eslint-config-prettier": "^7.0.0",
     "@vue/eslint-config-typescript": "^10.0.0",
     "eslint": "^8.9.0",
+    "eslint-config-prettier": "^8.4.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-vue": "^8.4.1",
     "prettier": "^2.2.1",
+    "prettier-eslint": "^13.0.0",
     "sass": "^1.49.7",
     "typescript": "^4.1.5",
     "vite": "^2.8.2",
