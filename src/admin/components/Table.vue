@@ -6,10 +6,12 @@
         :class="[{ 'sticky-top': options?.header?.sticky }, options?.header?.tr?.class]"
         :style="options?.header?.tr?.style"
       >
-        <th v-if="options?.row_num" v-html="'#'"></th>
+        <th v-if="options?.row_num" v-t="'#'"></th>
         <th
           v-for="(link, index) in header_links"
           :key="index"
+          :class="[{ 'sticky-top': options?.header?.sticky }, options?.header?.th?.class]"
+          :style="options?.header?.th?.style"
           @click="
             () => {
               if (link.header.on_click) {
@@ -17,10 +19,8 @@
               }
             }
           "
-          :class="[{ 'sticky-top': options?.header?.sticky }, options?.header?.th?.class]"
-          :style="options?.header?.th?.style"
         >
-          <span v-html="$t(link.header.label)"></span>
+          <span v-t="link.header.label"></span>
           <span v-if="link.header.icon">
             <component
               :is="link.header.icon.component"
@@ -31,7 +31,7 @@
           </span>
         </th>
         <th v-if="options?.buttons">
-          <span v-html="$t(options.buttons.header?.label ?? 'actions')"></span>
+          <span v-t="options.buttons.header?.label ?? 'actions'"></span>
         </th>
       </tr>
     </thead>
@@ -43,10 +43,12 @@
         :style="options?.data?.tr?.style"
         @click="options?.data?.tr?.on_click ? options?.data?.tr?.on_click(elem) : () => {}"
       >
-        <td v-if="options?.row_num" v-html="index + 1"></td>
+        <td v-if="options?.row_num" v-t="index + 1"></td>
         <td
-          v-for="(link, index) in header_links"
-          :key="index"
+          v-for="(link, i) in header_links"
+          :key="i"
+          :class="link.data.class"
+          :style="link.data.style"
           @click="
             () => {
               if (link.data.on_click) {
@@ -54,11 +56,9 @@
               }
             }
           "
-          :class="link.data.class"
-          :style="link.data.style"
         >
-          <span v-if="link.data.display_func" v-html="link.data.display_func()"></span>
-          <span v-else v-html="$t(elem[link.data.label])"></span>
+          <span v-if="link.data.display_func" v-t="link.data.display_func()"></span>
+          <span v-else v-t="elem[link.data.label]"></span>
           <span v-if="link.data.icon">
             <component
               :is="link.data.icon.component"
@@ -70,11 +70,11 @@
         </td>
         <td v-if="options?.buttons">
           <button
-            v-for="(button, index) in options.buttons.buttons"
-            :key="index"
+            v-for="(button, i) in options.buttons.buttons"
+            :key="i"
             @click="button.on_click(elem)"
           >
-            <span v-html="$t(button.data?.label ?? '')"></span>
+            <span v-t="button.data?.label ?? ''"></span>
             <span v-if="button.icon">
               <component
                 :is="button.icon.component"
@@ -165,6 +165,7 @@ export type Options = {
 };
 
 export default defineComponent({
+  name: "TableVue",
   props: {
     header_links: {
       type: Array as PropType<Array<Link>>,

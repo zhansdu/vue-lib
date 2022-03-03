@@ -16,8 +16,9 @@
     </button>
     <div class="collapse navbar-collapse justify-content-center py-4">
       <div class="navbar-nav text-nowrap">
-        <div class="fw-bold link" v-for="(link, index) in links" :key="index">
+        <div v-for="(link, index) in links" :key="index" class="fw-bold link">
           <dropdown-vue
+            v-if="link.dropdown"
             class="nav-link"
             :items="link.dropdown.links"
             :title="{ label: link.label, uppercase: true }"
@@ -26,14 +27,13 @@
                 class: 'text-decoration-none text-white dropdown-toggle',
               },
             }"
-            v-if="link.dropdown"
           ></dropdown-vue>
           <a
+            v-else
             class="nav-link text-white"
             :href="link.link"
             :target="link.target ?? '_blank'"
             v-html="$t(link.label).toUpperCase()"
-            v-else
           />
         </div>
       </div>

@@ -6,17 +6,17 @@
           <span class="font-size-32 fw-bold" v-html="$t('video_content.title').toUpperCase()" />
         </div>
         <div class="my-3">
-          <span v-html="$t('video_content.content')" />
+          <span v-t="'video_content.content'" />
         </div>
       </section>
       <section tag="videos">
         <div v-for="(video, index) in videos" :key="index">
           <div class="rounded border border-blue p-3 bg-white fixed-size">
             <a
+              v-t="'video_content.videos[' + index + '].title'"
               class="cursor-pointer text-darkblue"
               :href="video.link"
               target="_blank"
-              v-html="$t('video_content.videos[' + index + '].title')"
             />
             <div class="border-top border-darkblue pt-3 mt-3">
               <iframe
@@ -35,7 +35,7 @@
             href="https://www.youtube.com/channel/UCmuuTTBkfi8aUgUc56VY8kA"
             target="_blank"
           >
-            <span v-html="$t('video_content.see_all_videos')" />
+            <span v-t="'video_content.see_all_videos'" />
             <span class="ms-2"><right-normal-vue /></span>
           </a>
         </div>

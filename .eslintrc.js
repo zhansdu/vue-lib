@@ -17,5 +17,7 @@ module.exports = {
   },
   rules: {
     "vue/no-v-html": "off",
+    "vue/prop-name-casing": "off",
+    "vue/require-default-prop": "off",
   },
 };

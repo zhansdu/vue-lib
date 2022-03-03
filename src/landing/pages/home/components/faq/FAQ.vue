@@ -6,29 +6,29 @@
           <span class="font-size-32 fw-bold" v-html="$t('faq.title').toUpperCase()" />
         </div>
         <div class="mt-5">
-          <span class="fw-bold" v-html="$t('faq.question')" />
+          <span v-t="'faq.question'" class="fw-bold" />
         </div>
         <div class="mt-1">
-          <span class="font-size-14" v-html="$t('faq.answer')" />
+          <span v-t="'faq.answer'" class="font-size-14" />
         </div>
 
         <div class="mt-4">
           <div
+            v-for="(link, index) in search_links"
             :id="link.id"
+            :key="index"
             class="mt-20 full-width width-100-lg s-la-widget s-la-widget-embed"
             :class="$i18n.locale == link.language ? 'd-block' : 'd-none'"
-            v-for="(link, index) in search_links"
-            :key="index"
           ></div>
         </div>
       </section>
       <section class="col-12 col-md-6 mt-3 mt-md-0" tag="questions">
         <div
+          v-for="(link, index) in question_links"
           :id="link.id"
+          :key="index"
           class="no-border-top s-la-widget s-la-widget-embed"
           :class="$i18n.locale == link.language ? 'd-block' : 'd-none'"
-          v-for="(link, index) in question_links"
-          :key="index"
         ></div>
       </section>
     </div>

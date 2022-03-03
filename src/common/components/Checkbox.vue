@@ -22,7 +22,7 @@ export type CheckboxOptions = {
 };
 
 export default defineComponent({
-  emits: ["change", "update:modelValue"],
+  name: "CheckboxVue",
   props: {
     modelValue: {
       type: Object as PropType<unknown>,
@@ -49,6 +49,7 @@ export default defineComponent({
       required: false,
     },
   },
+  emits: ["change", "update:modelValue"],
   setup(props, context) {
     const state = ref(props.checked);
 

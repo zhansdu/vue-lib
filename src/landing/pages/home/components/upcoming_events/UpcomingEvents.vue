@@ -6,7 +6,7 @@
           <span class="font-size-32 fw-bold" v-html="$t('upcoming_events').toUpperCase()" />
         </div>
         <a class="text-darkblue" :href="$t('libguide.digest.link')">
-          <span v-html="$t('libguide.digest.title')" />
+          <span v-t="'libguide.digest.title'" />
           <span class="font-size-14 ms-2">
             <right-normal></right-normal>
           </span>

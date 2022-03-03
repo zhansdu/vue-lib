@@ -37,13 +37,14 @@
         <div
           v-for="(item, index) in multiple_title"
           :key="index"
+          v-t="item_label(item) ?? ((item as boolean | string | number).toString())"
           class="m-1 p-1 px-2 bg-lightblue rounded-pill"
           @click="multiple_title_click(+index)"
-          v-html="$t(item_label(item) ?? ((item as boolean | string | number).toString()))"
         ></div>
       </div>
       <div
         v-else
+        v-t="label"
         @click="
           () => {
             if (multiple) {
@@ -51,7 +52,6 @@
             }
           }
         "
-        v-html="$t(label)"
       ></div>
       <div
         class="rotate ms-1"
@@ -74,6 +74,7 @@
         <div
           v-for="(item, index) in items"
           :key="index"
+          v-t="item_label(item) ?? (item as boolean | string | number).toString()"
           class="cursor-pointer text-black py-2"
           :class="options?.item?.class"
           :style="options?.item?.style"
@@ -82,7 +83,6 @@
               item_click(item);
             }
           "
-          v-html="$t(item_label(item) ?? (item as boolean | string | number).toString())"
         ></div>
       </div>
     </div>

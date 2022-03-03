@@ -1,9 +1,9 @@
 <template>
   <div ref="parent" class="chat_parent bg-white hoverable">
     <div
+      v-if="!chat_shown"
       class="d-flex align-items-center cursor-pointer h-100"
       @click="showChat()"
-      v-if="!chat_shown"
     >
       <div class="d-flex justify-content-center align-items-center flex-shrink-0 chat_icon">
         <span class="font-size-20">
@@ -11,24 +11,24 @@
         </span>
       </div>
       <div class="mx-3 text-nowrap">
-        <span v-html="$t('chat.title')" />
+        <span v-t="$t('chat.title')" />
       </div>
     </div>
     <div class="h-100 d-flex flex-column w-0" :class="{ 'w-100': chat_shown }">
       <div class="d-flex justify-content-between p-4">
-        <div class="fw-bold" v-html="$t('chat.action')" />
-        <div @click="closeChat()" class="cursor-pointer"><X /></div>
+        <div v-t="'chat.action'" class="fw-bold" />
+        <div class="cursor-pointer" @click="closeChat()"><X /></div>
       </div>
       <div
         class="border-top border-lightgrey align-self-start mb-40 w-100 h-100"
         style="z-index: 1"
       >
         <div
+          v-for="(link, index) in chat_links"
           :id="link.id"
+          :key="index"
           class="border h-100"
           :class="$i18n.locale == link.language ? 'd-block' : 'd-none'"
-          v-for="(link, index) in chat_links"
-          :key="index"
         ></div>
       </div>
     </div>
@@ -46,6 +46,7 @@ import X from "@/common/assets/icons/X.vue";
 import { chatScripts, loadScript, Link } from "../../composables/links";
 
 export default defineComponent({
+  name:"ChatVue",
   components: {
     X,
     Chat,

@@ -6,11 +6,11 @@
       </a>
     </div>
     <form
-      @submit.prevent="login"
       class="d-flex flex-column align-items-center bg-lightgrey col-4 p-5 mb-5"
+      @submit.prevent="login"
     >
       <div class="flex-fill p-4 text-center">
-        <span v-html="$t('auth.description')"></span>
+        <span v-t="'auth.description'"></span>
       </div>
       <div class="col-10 mt-4">
         <input class="input w-100" :placeholder="$t('auth.login')" />
@@ -19,7 +19,7 @@
         <input class="input w-100" :placeholder="$t('auth.password')" type="password" />
       </div>
       <div class="col-8 mt-5">
-        <button class="button bg-white outline-green w-100" v-html="$t('auth.submit')"></button>
+        <button v-t="'auth.submit'" class="button bg-white outline-green w-100"></button>
       </div>
     </form>
   </div>
@@ -28,6 +28,7 @@
 import { defineComponent } from "@vue/runtime-core";
 
 export default defineComponent({
+  name: "HomeVue",
   setup() {
     function login(): void {
       alert("login");

@@ -57,7 +57,7 @@ export type Title = {
 };
 
 export default defineComponent({
-  emits: ["click", "update:modelValue"],
+  name: "DropdownVue",
   props: {
     modelValue: [String, Number],
     items: {
@@ -73,6 +73,7 @@ export default defineComponent({
       required: false,
     },
   },
+  emits: ["click", "update:modelValue"],
   setup(props, context) {
     const item_click = (item: Item): void => {
       context.emit("update:modelValue", item.value ?? item.toString());

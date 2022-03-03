@@ -15,10 +15,10 @@
       :placeholder="$t('search.search_eresources')"
     />
     <button
+      v-if="!check_mobile()"
+      v-t="'search.search'"
       type="submit"
       class="button p-3 px-5 w-min-120"
-      v-if="!check_mobile()"
-      v-html="$t('search.search')"
     />
   </form>
 </template>

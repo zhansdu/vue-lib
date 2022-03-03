@@ -1,35 +1,35 @@
 <template>
   <div>
-    <div class="d-flex mt-3" v-for="(search, index) in searches" :key="index">
+    <div v-for="(search, index) in searches" :key="index" class="d-flex mt-3">
       <select-vue
+        v-model="search.key"
         class="border-grey border-width w-min-120 border-end-0 border-end-radius-0 p-3"
         :options="select_options"
         :items="select_items"
-        v-model="search.key"
       ></select-vue>
       <input
+        v-model="search.value"
         class="input border-grey flex-fill border-start-radius-0 p-3"
         :class="{ 'me-3': index != input_max_number - 1 }"
-        v-model="search.value"
       />
       <select-vue
         v-if="index != searches.length - 1"
+        v-model="searches[index + 1].operator"
         class="border-grey border-width w-min-120 p-3"
         :items="operators"
         :options="operator_options"
-        v-model="searches[index + 1].operator"
       ></select-vue>
       <button
+        v-else-if="index < input_max_number - 1"
+        v-t="'+'"
         type="button"
         class="button w-min-120 px-5"
-        v-html="$t('+')"
-        v-else-if="index < input_max_number - 1"
         @click="addSearch()"
       ></button>
     </div>
     <div class="d-flex justify-content-between mt-3">
-      <button class="button" v-html="$t('search.reset')" @click="resetSearch()"></button>
-      <button class="button" v-html="$t('search.search')"></button>
+      <button v-t="'search.reset'" class="button" @click="resetSearch()"></button>
+      <button v-t="'search.search'" class="button"></button>
     </div>
   </div>
 </template>
@@ -54,7 +54,7 @@ type SearchType = {
 };
 
 export default defineComponent({
-  name: "advanced_search",
+  name: "AdvancedSearch",
   components: { SelectVue },
   setup() {
     const searches = ref([] as Array<SearchType>);

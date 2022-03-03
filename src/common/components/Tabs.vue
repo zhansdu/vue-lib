@@ -6,20 +6,20 @@
       :style="options?.parent?.style"
     >
       <div
-        class="tab"
+        v-for="(tab, index) in tabs"
         :ref="
           (el) => {
             if (el) tab_divs[index] = el;
           }
         "
-        v-for="(tab, index) in tabs"
         :key="index"
-        @click="set_active_tab(index, tab)"
+        class="tab"
         :class="[
           active_tab == index ? options?.tab?.active : options?.tab?.inactive,
           options?.title?.class,
         ]"
         :style="options?.title?.style"
+        @click="set_active_tab(index, tab)"
       >
         {{ $t(tab.label) }}
       </div>
@@ -68,7 +68,10 @@ export type TabOptions = {
 };
 
 export default defineComponent({
-  emits: ["click"],
+  name: "TabsVue",
+  components: {
+    KeepAlive,
+  },
   props: {
     tabs: {
       type: Array as PropType<Array<Tab>>,
@@ -79,9 +82,7 @@ export default defineComponent({
       required: false,
     },
   },
-  components: {
-    KeepAlive,
-  },
+  emits: ["click"],
   setup(props, context) {
     const tab_divs = ref([] as Array<Component>);
     const line = ref({} as HTMLDivElement);

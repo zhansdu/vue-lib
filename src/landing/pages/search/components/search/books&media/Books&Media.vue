@@ -18,6 +18,7 @@ import { defineComponent, ref } from "@vue/runtime-core";
 import SimpleSearchVue from "./simple_search/SimpleSearch.vue";
 import AdvancedSearchVue from "./advanced_search/AdvancedSearch.vue";
 export default defineComponent({
+  name: "BooksMedia",
   setup() {
     const is_simple = ref(true);
     function changeSearchType(): void {

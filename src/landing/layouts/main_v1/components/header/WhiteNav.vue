@@ -6,9 +6,9 @@
       </section>
       <section class="d-flex align-items-center">
         <dropdown-vue
+          v-model="$i18n.locale"
           :items="dropdown_items"
           :options="dropdown_options"
-          v-model="$i18n.locale"
           @click="changeLocale"
         ></dropdown-vue>
         <div class="bg-lightblue p-3 ms-3">

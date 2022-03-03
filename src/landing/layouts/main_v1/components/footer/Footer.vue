@@ -5,13 +5,14 @@
         <section tag="logo">
           <img src="@/common/assets/images/logo_white.png" class="logo" />
           <div class="mt-5 text-darkgrey">
-            <span v-html="$t('footer.sdu')"></span>
-            <span class="d-block fw-bold" v-html="$t('footer.city')"></span>
+            <span v-t="'footer.sdu'"></span>
+            <span v-t="'footer.city'" class="d-block fw-bold"></span>
           </div>
         </section>
         <section tag="links">
-          <div class="mb-2 link" v-for="(link, index) in links" :key="index">
+          <div v-for="(link, index) in links" :key="index" class="mb-2 link">
             <dropdown-vue
+              v-if="link.dropdown"
               :items="link.dropdown.links"
               :title="{ label: link.label }"
               :options="{
@@ -22,35 +23,34 @@
                   class: 'link',
                 },
               }"
-              v-if="link.dropdown"
             ></dropdown-vue>
-            <a v-else :href="link.link" :target="link.target ?? '_blank'" v-html="$t(link.label)" />
+            <a v-else v-t="link.label" :href="link.link" :target="link.target ?? '_blank'" />
           </div>
         </section>
         <section tag="contacts">
-          <div class="mb-3" v-html="$t('contacts.title')" />
+          <div v-t="'contacts.title'" class="mb-3" />
           <div
-            class="mb-2 text-darkgrey font-size-14"
             v-for="(contact, index) in en.contacts.data"
             :key="index"
+            class="mb-2 text-darkgrey font-size-14"
           >
             <div>
-              <span v-html="$t(contact)" />
+              <span v-t="contact" />
             </div>
           </div>
         </section>
         <section tag="follow">
           <div>
-            <div class="mb-3" v-html="$t('follow_us')" />
+            <div v-t="'follow_us'" class="mb-3" />
             <div class="d-flex justify-content-around">
               <a
+                v-for="(icon, index) in icons"
+                :key="index"
                 class="d-flex align-items-center justify-content-center me-3 transition icon_wrapper"
                 :href="icon.link"
                 target="_blank"
-                v-for="(icon, index) in icons"
-                :key="index"
               >
-                <component class="text-blue icon" :is="icon.component" />
+                <component :is="icon.component" class="text-blue icon" />
               </a>
             </div>
           </div>
@@ -62,9 +62,9 @@
         <div class="text-darkgrey">YEAR</div>
         <div class="ms-2">
           <dropdown-vue
+            v-model="$i18n.locale"
             :items="dropdown_items"
             :options="dropdown_options"
-            v-model="$i18n.locale"
             @click="changeLocale"
           ></dropdown-vue>
         </div>
@@ -88,6 +88,7 @@ import Telegram from "@/user/assets/icons/Telegram.vue";
 import Youtube from "@/user/assets/icons/Youtube.vue";
 
 export default defineComponent({
+  name: "FooterVue",
   components: { DropdownVue },
   setup() {
     const dropdown_options: DropdownOptions = {

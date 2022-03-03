@@ -6,11 +6,11 @@
     <div class="overflow-hidden w-100">
       <div ref="events" class="d-flex justify-content-between align-items-start transition">
         <div
+          v-for="(event, index) in events"
+          :key="index"
           class="bg-lightgrey rounded flex-shrink-0 transition font-size-18 p-3"
           :class="index == events.length - 1 ? 'ml-2' : 'mr-2'"
           :style="{ width: itemWidth + 'px' }"
-          v-for="(event, index) in events"
-          :key="index"
         >
           <div class="d-flex">
             <div class="mr-5 d-flex flex-column">
@@ -21,7 +21,7 @@
               />
             </div>
             <div class="text-grey d-flex flex-column justify-content-around">
-              <div v-html="$t('news[' + index + '].place')" />
+              <div v-t="$t('news[' + index + '].place')" />
               <div class="d-flex">
                 {{ event.time_from }}
                 <span v-if="event.time_until">
@@ -29,7 +29,7 @@
                   {{ "- " + event.time_until }}
                   <span
                     v-if="event.date_until"
-                    v-html="' (' +
+                    v-t="' (' +
                     (event.date_until as Date).getDate() +
                     ' ' +
                     $t('months[' + (event.date_until as Date).getMonth() + ']') +
@@ -43,11 +43,11 @@
           <div>
             <div class="text-grey">{{ $t(event.type) }}</div>
             <router-link
+              v-if="event.type == 'announcement'"
               :to="{ name: 'full_event', params: { index: index }, query: { index: index } }"
               class="d-flex align-items-center justify-content-between text-black cursor-pointer"
-              v-if="event.type == 'announcement'"
             >
-              <div class="fw-bold font-size-24" v-html="$t('news[' + index + '].title')" />
+              <div v-t="'news[' + index + '].title'" class="fw-bold font-size-24" />
               <div
                 class="rounded-circle bg-white fixed-size d-flex align-items-center justify-content-center"
               >
@@ -55,12 +55,12 @@
               </div>
             </router-link>
             <a
+              v-else
               :href="event.link"
               target="_blank"
               class="d-flex align-items-center justify-content-between text-black cursor-pointer"
-              v-else
             >
-              <div class="fw-bold font-size-24" v-html="$t('news[' + index + '].title')" />
+              <div v-t="'news[' + index + '].title'" class="fw-bold font-size-24" />
               <div
                 class="rounded-circle bg-white fixed-size d-flex align-items-center justify-content-center"
               >
@@ -72,19 +72,19 @@
       </div>
     </div>
     <div
+      v-if="current_item_number != 0"
       class="left_button rotate cursor-pointer"
       @click="move(-1)"
-      v-if="current_item_number != 0"
     >
       <right-little />
     </div>
     <div
-      class="right_button cursor-pointer"
-      @click="move(1)"
       v-if="
         current_item_number != events.length - number_shown &&
         current_item_number != events.length - 1
       "
+      class="right_button cursor-pointer"
+      @click="move(1)"
     >
       <right-little />
     </div>
