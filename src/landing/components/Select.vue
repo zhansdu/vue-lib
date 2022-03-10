@@ -93,7 +93,7 @@
 import CaretUp from "@/common/assets/icons/CaretUp.vue";
 import { defineComponent, ref, PropType, watchEffect } from "@vue/runtime-core";
 
-import { SelectOptions } from "./types/SelectTypes";
+import { SelectOptions } from "./SelectTypes";
 import { StringRecordType, ObjectRecordType } from "../types/PrimitiveTypes";
 import { computed } from "vue";
 
