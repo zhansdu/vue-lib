@@ -47,15 +47,15 @@ cd [package]
 yarn
 ```
 
-#### To test local server running :
-
-```
-yarn dev
-```
-
 #### To compile scss :
 
 ```
 yarn sass:compile@all
 ```
 
+
+#### To test local server running :
+
+```
+yarn dev
+```
