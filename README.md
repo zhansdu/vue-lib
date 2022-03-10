@@ -53,6 +53,9 @@ yarn
 yarn dev
 ```
 
-To compile scss :  
-run scss scripts described in package.json  
-or press ctrl+shift+B (in vscode) and run scss scripts
+#### To compile scss :
+
+```
+yarn sass:compile@all
+```
+
