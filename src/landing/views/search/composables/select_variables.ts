@@ -1,4 +1,4 @@
-import { SelectOptions } from "@/user/components/Select.vue";
+import { SelectOptions } from "@/landing/components/SelectTypes";
 
 export const select_options: SelectOptions = {
   placeholder: "Zhan",

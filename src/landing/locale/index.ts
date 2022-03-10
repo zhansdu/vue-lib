@@ -11,13 +11,8 @@ const messages = {
 };
 
 export const i18n = createI18n({
-  locale: localStorage.getItem("lang") ?? "en",
   fallbackLocale: "en",
   messages: messages,
   silentTranslationWarn: true,
   silentFallbackWarn: true,
 });
-
-export function addLocale(data: Record<string, unknown>, key: keyof typeof messages): void {
-  Object.assign(messages[key], data);
-}
