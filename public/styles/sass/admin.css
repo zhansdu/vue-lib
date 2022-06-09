@@ -46,7 +46,7 @@ a {
   border-radius: 0.3125em;
   caret-color: var(--orange);
 }
-.input[type=text] {
+.input[type="text"] {
   min-width: 12.5em;
 }
 
@@ -58,7 +58,8 @@ a {
   background-color: var(--orange);
   border-radius: 0.3125em;
 }
-.button:disabled, .button[disabled] {
+.button:disabled,
+.button[disabled] {
   border: 1px solid #999999 !important;
   background-color: #cccccc !important;
   color: #666666 !important;
@@ -74,7 +75,8 @@ a {
   width: 100%;
   border-spacing: 0px;
 }
-.table table > td, .table table > th {
+.table table > td,
+.table table > th {
   border: 0.0625em solid #e8e8e8;
   padding: 1em 1.25em;
 }

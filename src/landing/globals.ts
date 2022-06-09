@@ -1,4 +1,4 @@
-import store from "@/landing/store/store";
+import store from "./store/store";
 
 function check_mobile(): boolean {
   let check = false;
@@ -19,5 +19,5 @@ function check_mobile(): boolean {
 
 export default {
   $check_mobile: check_mobile,
-  $store: store,
+  $store: () => store,
 };

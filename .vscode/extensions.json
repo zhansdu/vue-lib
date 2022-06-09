@@ -3,6 +3,7 @@
     "johnsoncodehk.volar",
     "octref.vetur",
     "esbenp.prettier-vscode",
-    "dbaeumer.vscode-eslint"
+    "dbaeumer.vscode-eslint",
+    "rvest.vs-code-prettier-eslint"
   ]
 }

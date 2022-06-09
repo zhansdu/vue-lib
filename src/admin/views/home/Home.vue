@@ -7,6 +7,7 @@ import { defineComponent, ref } from "@vue/runtime-core";
 import TableVue, { Options, Link } from "@/admin/components/Table.vue";
 // import InputVue from "@/admin/components/Input.vue";
 export default defineComponent({
+  name: "HomeVue",
   components: {
     TableVue,
     // InputVue,
