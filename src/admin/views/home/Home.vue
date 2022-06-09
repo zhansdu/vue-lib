@@ -1,12 +1,15 @@
 <template>
   <table-vue :header_links="header_links" :data="data" :options="options"></table-vue>
+  <!-- <input-vue /> -->
 </template>
 <script lang="ts">
 import { defineComponent, ref } from "@vue/runtime-core";
 import TableVue, { Options, Link } from "@/admin/components/Table.vue";
+// import InputVue from "@/admin/components/Input.vue";
 export default defineComponent({
   components: {
     TableVue,
+    // InputVue,
   },
   setup() {
     const header_links = ref<Array<Link>>([

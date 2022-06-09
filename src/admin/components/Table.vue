@@ -20,6 +20,7 @@
           :class="[{ 'sticky-top': options?.header?.sticky }, options?.header?.th?.class]"
           :style="options?.header?.th?.style"
         >
+          <span>{{ $t("hello") }}: </span>
           <span v-html="$t(link.header.label)"></span>
           <span v-if="link.header.icon">
             <component
@@ -93,6 +94,7 @@
 import { Component, defineComponent, PropType } from "@vue/runtime-core";
 type ClassStyleType = string | Record<string, boolean> | Array<string>;
 
+// link of header links
 export type Link = {
   header: {
     label: string;
@@ -122,6 +124,7 @@ export type Link = {
 
 export type Options = {
   row_num?: boolean;
+  // style for header links
   header?: {
     sticky?: boolean;
     tr?: {
@@ -133,6 +136,7 @@ export type Options = {
       style?: ClassStyleType;
     };
   };
+  // style and functionality of actual data
   data?: {
     sticky?: boolean;
     tr?: {
@@ -145,6 +149,7 @@ export type Options = {
       style?: ClassStyleType;
     };
   };
+  // if there are buttons in the table
   buttons?: {
     header?: {
       label?: string;
@@ -177,6 +182,13 @@ export default defineComponent({
     options: {
       type: Object as PropType<Options>,
       required: false,
+    },
+  },
+  i18n: {
+    messages: {
+      en: {
+        hello: "Che tam Zhake?",
+      },
     },
   },
 });
